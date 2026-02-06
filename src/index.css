@@ -1,0 +1,26 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", system-ui, sans-serif;
+  --color-wine: #722f37;
+  --color-wine-dark: #5a252c;
+  --color-gold: #d4af37;
+  --color-cream: #faf8f5;
+  --color-slate-warm: #3d3d3d;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+}
+
+.gradient-wine {
+  background: linear-gradient(135deg, var(--color-wine) 0%, var(--color-wine-dark) 100%);
+}
+
+.text-shadow {
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
