@@ -19,11 +19,10 @@ const UNSPLASH_IMAGES = {
   prado: 'https://images.unsplash.com/photo-1574158622682-e40e69881006?auto=format&fit=crop&w=1600&q=80',
 }
 
-// Option colors
 const OPTION_COLORS = {
-  A: { primary: '#c05621', light: '#dd6b20', name: 'terracotta' }, // Spanish Sojourn
-  B: { primary: '#2b6cb0', light: '#4299e1', name: 'azulejo' },    // Straight to Portugal
-  C: { primary: '#d69e2e', light: '#ecc94b', name: 'gold' },       // Best of Both
+  A: { primary: '#c05621', light: '#dd6b20', name: 'terracotta' },
+  B: { primary: '#2b6cb0', light: '#4299e1', name: 'azulejo' },
+  C: { primary: '#d69e2e', light: '#ecc94b', name: 'gold' },
 }
 
 // ============ ANIMATION VARIANTS ============
@@ -43,7 +42,6 @@ const scaleIn = {
 }
 
 // ============ COMPONENTS ============
-
 function AnimatedSection({ children, className = '' }: { children: React.ReactNode; className?: string }) {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: '-100px' })
@@ -114,10 +112,8 @@ function Navigation() {
   ]
 
   return (
-    <motion.nav 
-      initial={{ y: -100 }} animate={{ y: 0 }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled ? 'bg-[var(--color-navy)]/95 backdrop-blur-md shadow-lg' : 'bg-transparent'}`}
-    >
+    <motion.nav initial={{ y: -100 }} animate={{ y: 0 }}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled ? 'bg-[var(--color-navy)]/95 backdrop-blur-md shadow-lg' : 'bg-transparent'}`}>
       <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
         <a href="#" className="font-[Playfair_Display] text-2xl font-bold text-white flex items-center gap-2">
           <span className="text-[var(--color-gold)]">◆</span>
@@ -220,7 +216,7 @@ function Overview() {
     { icon: '🎯', date: 'May 14-18', title: 'Flexible Days', desc: '3 route options below!', highlight: true },
     { icon: '🤝', date: 'Mon, May 19', title: 'Friends Arrive', desc: 'Zach & Lauren join in Porto' },
     { icon: '🍷', date: 'May 19-22', title: 'Douro Valley', desc: '3 nights in wine country' },
-    { icon: '🚗', date: 'Thu, May 22', title: 'Drive to Lisbon', desc: '~4 hours scenic route' },
+    { icon: '🚗', date: 'Thu, May 22', title: 'Drive to Lisbon', desc: 'Rental car, ~4 hours' },
     { icon: '🥂', date: 'Sat, May 23', title: 'Welcome Party', desc: 'Cocktails, casual dress' },
     { icon: '💒', date: 'Sun, May 24', title: 'Wedding Day', desc: 'Palácio do Grilo' },
     { icon: '🏠', date: 'Mon, May 25', title: 'Fly Home', desc: 'LIS → JFK → SFO' },
@@ -236,6 +232,20 @@ function Overview() {
             <span className="w-24 h-px bg-gradient-to-r from-transparent to-[var(--color-gold)]" />
             <span className="text-[var(--color-gold)]">◆</span>
             <span className="w-24 h-px bg-gradient-to-l from-transparent to-[var(--color-gold)]" />
+          </div>
+        </AnimatedSection>
+
+        {/* Travel Style Note */}
+        <AnimatedSection className="mb-12">
+          <div className="bg-white rounded-2xl p-6 shadow-md max-w-2xl mx-auto">
+            <h3 className="font-semibold text-[var(--color-navy)] mb-3 flex items-center gap-2">
+              <span>✨</span> Travel Style
+            </h3>
+            <p className="text-gray-600 text-sm leading-relaxed">
+              <strong>Semi-luxurious:</strong> Boutique hotels (€150-300/night), quality dining with local gems + a few splurges (€30-80 dinners), 
+              authentic experiences over tourist traps, comfortable transport (rental car in Douro, trains over buses). 
+              Think elevated but not flashy—Instagram-worthy but genuine.
+            </p>
           </div>
         </AnimatedSection>
 
@@ -292,8 +302,9 @@ interface OptionDay {
   date: string;
   title: string;
   activities: string[];
-  dining?: string[];
-  stay?: string;
+  dining?: Array<{ name: string; note: string; price?: string }>;
+  stay?: { name: string; price: string; note?: string };
+  transport?: string;
   image?: string;
 }
 
@@ -313,47 +324,92 @@ const OPTIONS: ItineraryOption[] = [
     name: 'The Spanish Sojourn',
     tagline: 'Madrid + Toledo + Porto',
     icon: '🇪🇸',
-    summary: 'Embrace Spain before Portugal. Explore Madrid\'s world-class museums and tapas bars, take a day trip to medieval Toledo, then train to Porto for a taste of port wine.',
-    pros: ['World-class Prado Museum', 'Toledo day trip (UNESCO site)', 'Scenic train through Iberia', 'Porto port wine cellars'],
+    summary: 'Embrace Spain before Portugal. Explore Madrid\'s world-class museums and authentic tapas bars, take a day trip to medieval Toledo, then scenic train to Porto.',
+    pros: ['World-class Prado Museum', 'Toledo day trip (UNESCO)', 'Scenic train through Iberia', 'Porto wine cellars'],
     days: [
       {
         date: 'Thu, May 14',
         title: 'Arrive in Madrid',
-        activities: ['Land Madrid-Barajas Airport', 'Check into hotel near Sol/Gran Vía', 'Afternoon: Explore Puerta del Sol & Plaza Mayor', 'Evening: Tapas crawl on Calle Ponzano'],
-        dining: ['Casa Toni (classic tapas)', 'Bar La Campana', 'Los Gatos for vermut'],
-        stay: 'Dear Hotel Madrid or Hotel Atlántico',
+        activities: [
+          'Land Madrid-Barajas ~morning',
+          'Check into hotel near Gran Vía',
+          'Afternoon: Wander Puerta del Sol & Plaza Mayor',
+          'Evening: Tapas crawl on Calle Ponzano (local favorite, not touristy)',
+        ],
+        dining: [
+          { name: 'Casa Toni', note: 'Classic standing tapas bar', price: '€15-25pp' },
+          { name: 'El Doble', note: 'Cañas & modern tapas on Ponzano', price: '€20-30pp' },
+        ],
+        stay: { name: 'Hotel Indigo Madrid Gran Vía', price: '€180-220/night', note: 'IHG points • Rooftop pool • Design hotel' },
         image: UNSPLASH_IMAGES.madrid,
       },
       {
         date: 'Fri, May 15',
         title: 'Madrid Museums & Culture',
-        activities: ['Morning: Prado Museum (book ahead!)', 'Lunch at Mercado de San Miguel', 'Afternoon: Retiro Park & Crystal Palace', 'Evening: Sunset drinks at rooftop bar'],
-        dining: ['Raza (upscale meats)', 'Casa Labra (cod croquettes since 1860)'],
-        stay: 'Dear Hotel Madrid',
+        activities: [
+          'Morning: Prado Museum (book €15 tickets ahead)',
+          'Lunch: Mercado de San Miguel or local spot nearby',
+          'Afternoon: Retiro Park & Crystal Palace',
+          'Evening: Rooftop drinks, then splurge dinner',
+        ],
+        dining: [
+          { name: 'Casa Labra', note: 'Famous cod croquettes since 1860', price: '€10-15pp' },
+          { name: 'Sobrino de Botín', note: 'World\'s oldest restaurant (splurge!)', price: '€50-70pp' },
+        ],
+        stay: { name: 'Hotel Indigo Madrid Gran Vía', price: '€180-220/night' },
         image: UNSPLASH_IMAGES.prado,
       },
       {
         date: 'Sat, May 16',
         title: 'Day Trip to Toledo',
-        activities: ['Train from Atocha (30 min)', 'UNESCO World Heritage medieval city', 'Visit Toledo Cathedral & Alcázar', 'Wander Jewish Quarter', 'Return to Madrid for dinner'],
-        dining: ['Lunch in Toledo: Alfileritos 24', 'Dinner Madrid: Sobrino de Botín (world\'s oldest restaurant)'],
-        stay: 'Dear Hotel Madrid',
+        activities: [
+          'Train from Atocha (30 min, ~€13 each way)',
+          'UNESCO World Heritage medieval city',
+          'Visit Toledo Cathedral & Alcázar fortress',
+          'Wander Jewish Quarter & narrow streets',
+          'Return to Madrid for dinner',
+        ],
+        dining: [
+          { name: 'Alfileritos 24', note: 'Lunch in Toledo, local cuisine', price: '€25-35pp' },
+          { name: 'La Barraca', note: 'Excellent paella back in Madrid', price: '€35-45pp' },
+        ],
+        stay: { name: 'Hotel Indigo Madrid Gran Vía', price: '€180-220/night' },
+        transport: 'Renfe AVE train Madrid ↔ Toledo (~€26 roundtrip)',
         image: UNSPLASH_IMAGES.toledo,
       },
       {
         date: 'Sun, May 17',
         title: 'Train to Porto',
-        activities: ['Morning train Madrid → Porto (~6-7 hours)', 'Scenic journey through Spanish countryside', 'Arrive Porto late afternoon', 'Evening walk along Ribeira waterfront'],
-        dining: ['Dinner: Adega de São Nicolau'],
-        stay: 'Hotel & Wine in Porto',
+        activities: [
+          'Morning train Madrid → Porto (6-7 hours via connections)',
+          'Scenic journey through Spanish/Portuguese countryside',
+          'Arrive Porto late afternoon',
+          'Evening walk along Ribeira waterfront',
+          'First taste of port wine!',
+        ],
+        dining: [
+          { name: 'Adega de São Nicolau', note: 'Traditional Porto, riverside', price: '€25-40pp' },
+        ],
+        stay: { name: 'Pestana Vintage Porto', price: '€160-220/night', note: '5-star on Ribeira • River views' },
+        transport: 'Train ~€50-80 (book Renfe + CP combo on seat61.com)',
         image: UNSPLASH_IMAGES.porto,
       },
       {
         date: 'Mon, May 18',
         title: 'Porto Exploration',
-        activities: ['Morning: Livraria Lello & Clérigos Tower', 'Cross Dom Luís I Bridge to Gaia', 'Port wine cellar tastings (Graham\'s, Sandeman)', 'Francesinha lunch tradition', 'Evening: Ribeira sunset'],
-        dining: ['Café Santiago (best Francesinha)', 'Wine Quay Bar', 'Vinhas d\'Alho for dinner'],
-        stay: 'Hotel & Wine in Porto',
+        activities: [
+          'Morning: Livraria Lello (€8, book ahead) & Clérigos Tower',
+          'Cross Dom Luís I Bridge to Gaia',
+          'Port wine tastings: Graham\'s Lodge (~€15-25)',
+          'Francesinha lunch (Porto specialty)',
+          'Evening: Ribeira golden hour photos',
+        ],
+        dining: [
+          { name: 'Café Santiago', note: 'Best Francesinha in town', price: '€15-20pp' },
+          { name: 'Wine Quay Bar', note: 'Sunset wines on the river', price: '€20-30pp' },
+          { name: 'Vinhas d\'Alho', note: 'Dinner with Douro views', price: '€35-50pp' },
+        ],
+        stay: { name: 'Pestana Vintage Porto', price: '€160-220/night' },
         image: UNSPLASH_IMAGES.porto,
       },
     ],
@@ -363,46 +419,94 @@ const OPTIONS: ItineraryOption[] = [
     name: 'Straight to Portugal',
     tagline: 'Quick Madrid → Porto Focus',
     icon: '🇵🇹',
-    summary: 'Maximize your Portugal time! Quick overnight in Madrid, then fly to Porto for 4 full days exploring the city and early Douro Valley wine tastings.',
-    pros: ['4 full days in Porto', 'More time for port wine cellars', 'Early Douro Valley preview', 'Relaxed pace, less travel'],
+    summary: 'Maximize Portugal time! Quick overnight in Madrid to recover from the flight, then fly to Porto for 4 full days exploring the city and early Douro Valley tastings.',
+    pros: ['4 full days in Porto', 'Deep dive into port wine', 'Early Douro Valley preview', 'Most relaxed pace'],
     days: [
       {
         date: 'Thu, May 14',
-        title: 'Madrid Overnight',
-        activities: ['Land Madrid-Barajas Airport', 'Check into airport hotel', 'Quick dinner & rest', 'Early night for morning flight'],
-        dining: ['Hotel restaurant or Terminal 4'],
-        stay: 'NH Collection Madrid Airport',
+        title: 'Madrid Recovery Night',
+        activities: [
+          'Land Madrid-Barajas ~morning',
+          'Check into airport-area hotel',
+          'Rest, nap, recharge from flight',
+          'Light dinner at hotel or T4',
+          'Early night for morning flight',
+        ],
+        dining: [
+          { name: 'Hotel restaurant or Sala VIP', note: 'Keep it simple', price: '€20-30pp' },
+        ],
+        stay: { name: 'NH Collection Madrid Airport T4', price: '€140-180/night', note: 'Connected to terminal • Easy morning' },
       },
       {
         date: 'Fri, May 15',
         title: 'Fly to Porto + Explore',
-        activities: ['Morning flight MAD → OPO (1 hour)', 'Check into Porto hotel', 'Afternoon: São Bento Station & Cathedral', 'Walk Ribeira UNESCO waterfront', 'First port wine tasting'],
-        dining: ['Lunch: O Comercial', 'Dinner: DOP by Chef Rui Paula'],
-        stay: 'Pestana Vintage Porto or The Yeatman',
+        activities: [
+          'Morning flight MAD → OPO (1 hour, ~€50-100)',
+          'Check into Porto hotel by noon',
+          'Afternoon: São Bento Station tiles, Cathedral',
+          'Walk Ribeira UNESCO waterfront',
+          'First port wine tasting at a lodge',
+        ],
+        dining: [
+          { name: 'O Comercial', note: 'Modern Portuguese lunch', price: '€20-30pp' },
+          { name: 'DOP by Rui Paula', note: 'Chef-driven dinner (worth it)', price: '€60-80pp' },
+        ],
+        stay: { name: 'Pestana Vintage Porto', price: '€160-220/night', note: '5-star Ribeira • Historic building' },
+        transport: 'Flight MAD→OPO ~€50-100 (book Iberia/TAP early)',
         image: UNSPLASH_IMAGES.porto,
       },
       {
         date: 'Sat, May 16',
         title: 'Port Wine Deep Dive',
-        activities: ['Morning: Cross to Vila Nova de Gaia', 'Graham\'s Lodge tour & tasting', 'Lunch with views', 'Afternoon: Sandeman or Taylor\'s', 'Cable car ride along river'],
-        dining: ['Lunch: Vinum at Graham\'s', 'Dinner: Cantinho do Avillez'],
-        stay: 'Pestana Vintage Porto',
+        activities: [
+          'Morning: Cross to Vila Nova de Gaia',
+          'Graham\'s Lodge tour & premium tasting (~€25)',
+          'Lunch with panoramic views',
+          'Afternoon: Taylor\'s or Sandeman (~€15-20)',
+          'Cable car ride along river (€7)',
+          'Sunset from Jardim do Morro',
+        ],
+        dining: [
+          { name: 'Vinum at Graham\'s', note: 'Lunch with views', price: '€40-55pp' },
+          { name: 'Cantinho do Avillez', note: 'José Avillez casual spot', price: '€35-50pp' },
+        ],
+        stay: { name: 'Pestana Vintage Porto', price: '€160-220/night' },
         image: UNSPLASH_IMAGES.wine,
       },
       {
         date: 'Sun, May 17',
         title: 'Day Trip to Douro Valley',
-        activities: ['Scenic train to Pinhão (2.5 hours)', 'Visit 1-2 quintas for tastings', 'Lunch at Quinta Nova', 'See famous Pinhão tile station', 'Train back to Porto'],
-        dining: ['Lunch: Quinta Nova restaurant', 'Dinner: Taberna dos Mercadores'],
-        stay: 'Pestana Vintage Porto',
+        activities: [
+          'Scenic train Porto → Pinhão (2.5 hours, ~€15)',
+          'Visit 1-2 quintas for tastings',
+          'Lunch at a winery with valley views',
+          'See famous Pinhão tile train station',
+          'Train back to Porto by evening',
+        ],
+        dining: [
+          { name: 'Quinta Nova', note: 'Winery lunch with views', price: '€40-60pp' },
+          { name: 'Taberna dos Mercadores', note: 'Simple Porto dinner', price: '€25-35pp' },
+        ],
+        stay: { name: 'Pestana Vintage Porto', price: '€160-220/night' },
+        transport: 'Douro Line train roundtrip ~€30',
         image: UNSPLASH_IMAGES.douroValley,
       },
       {
         date: 'Mon, May 18',
         title: 'Porto Hidden Gems',
-        activities: ['Morning: Foz do Douro beach area', 'Serralves Museum of Contemporary Art', 'Lunch in Matosinhos (seafood!)', 'Afternoon: Bolhão Market', 'Evening prep for friends arriving'],
-        dining: ['Matosinhos seafood restaurants', 'Dinner: Wine Box Porto'],
-        stay: 'Pestana Vintage Porto',
+        activities: [
+          'Morning: Foz do Douro beach neighborhood',
+          'Coffee at seaside café',
+          'Serralves Museum (€20, stunning gardens)',
+          'Lunch in Matosinhos (famous for seafood)',
+          'Afternoon: Bolhão Market (renovated)',
+          'Evening prep for friends arriving tomorrow',
+        ],
+        dining: [
+          { name: 'Marisqueira Matosinhos', note: 'Fresh grilled fish', price: '€30-45pp' },
+          { name: 'Flor dos Congregados', note: 'Old-school Porto', price: '€25-35pp' },
+        ],
+        stay: { name: 'Pestana Vintage Porto', price: '€160-220/night' },
         image: UNSPLASH_IMAGES.azulejos,
       },
     ],
@@ -412,47 +516,96 @@ const OPTIONS: ItineraryOption[] = [
     name: 'Best of Both Worlds',
     tagline: 'Madrid → Lisbon → North',
     icon: '⚖️',
-    summary: 'See the highlights of Madrid, then take the overnight train to Lisbon for a sneak preview before heading north to meet friends. You\'ll book-end the trip with Lisbon!',
-    pros: ['Two capital cities', 'Overnight train experience', 'Preview Lisbon before wedding', 'Unique reverse route'],
+    summary: 'See both capitals! Madrid highlights, then the romantic overnight Trenhotel to Lisbon for a sneak preview before heading north. You\'ll book-end the trip with Lisbon!',
+    pros: ['Two capital cities', 'Overnight train experience', 'Preview Lisbon neighborhoods', 'Unique reverse route'],
     days: [
       {
         date: 'Thu, May 14',
         title: 'Arrive in Madrid',
-        activities: ['Land Madrid-Barajas Airport', 'Check into central hotel', 'Afternoon: Plaza Mayor & Puerta del Sol', 'Evening: Tapas in La Latina'],
-        dining: ['Casa Amadeo Los Caracoles', 'El Doble on Calle Ponzano'],
-        stay: 'NH Collection Suecia',
+        activities: [
+          'Land Madrid-Barajas ~morning',
+          'Check into central boutique hotel',
+          'Afternoon: Plaza Mayor & Puerta del Sol',
+          'Evening: Tapas crawl in La Latina neighborhood',
+        ],
+        dining: [
+          { name: 'Casa Amadeo Los Caracoles', note: 'Authentic since 1942', price: '€15-25pp' },
+          { name: 'Juana la Loca', note: 'Trendy pintxos in La Latina', price: '€25-35pp' },
+        ],
+        stay: { name: 'Room Mate Oscar', price: '€150-190/night', note: 'Design hotel • Rooftop bar • Chueca' },
         image: UNSPLASH_IMAGES.madrid,
       },
       {
         date: 'Fri, May 15',
-        title: 'Madrid Highlights',
-        activities: ['Morning: Prado Museum (essential!)', 'Lunch at Mercado de San Miguel', 'Afternoon: Retiro Park stroll', 'Pack for overnight train', 'Evening: Trenhotel to Lisbon (departs ~9:45pm)'],
-        dining: ['Sobrino de Botín', 'Quick tapas before train'],
-        stay: 'Trenhotel overnight',
+        title: 'Madrid Highlights + Night Train',
+        activities: [
+          'Morning: Prado Museum (book €15 tickets)',
+          'Lunch near Retiro',
+          'Afternoon: Retiro Park stroll',
+          'Pack for overnight train',
+          'Trenhotel to Lisbon (departs ~9:45pm)',
+          'Sleep in private cabin!',
+        ],
+        dining: [
+          { name: 'Estado Puro', note: 'Paco Roncero tapas', price: '€30-40pp' },
+          { name: 'Quick bite before train', note: 'Grab & go', price: '€10-15pp' },
+        ],
+        stay: { name: 'Trenhotel overnight train', price: '€80-150 (cabin)', note: 'Book Renfe ahead • Adventure!' },
+        transport: 'Trenhotel Madrid → Lisbon overnight ~€80-150',
         image: UNSPLASH_IMAGES.prado,
       },
       {
         date: 'Sat, May 16',
         title: 'Arrive Lisbon + Explore',
-        activities: ['Arrive Lisbon Santa Apolónia ~7:30am', 'Check into hotel, freshen up', 'Breakfast pastéis de nata', 'Walk Alfama neighborhood', 'Afternoon: Belém (Tower + Monastery)'],
-        dining: ['Pastéis de Belém', 'Dinner: Taberna da Rua das Flores'],
-        stay: 'Hotel in Baixa or Alfama',
+        activities: [
+          'Arrive Lisbon Santa Apolónia ~7:30am',
+          'Check bags, find breakfast pastéis de nata',
+          'Walk through Alfama neighborhood',
+          'Afternoon: Belém (Tower, Monastery, famous pastéis)',
+          'Check into hotel, freshen up',
+          'Dinner in Bairro Alto',
+        ],
+        dining: [
+          { name: 'Manteigaria', note: 'Hot custard tarts', price: '€5-10pp' },
+          { name: 'Pastéis de Belém', note: 'The original since 1837', price: '€5-10pp' },
+          { name: 'Taberna da Rua das Flores', note: 'Reserve ahead!', price: '€40-55pp' },
+        ],
+        stay: { name: 'Memmo Alfama', price: '€180-260/night', note: 'Design hotel • Pool • Alfama views' },
         image: UNSPLASH_IMAGES.lisbon,
       },
       {
         date: 'Sun, May 17',
         title: 'Lisbon Discovery',
-        activities: ['Morning: Tram 28 experience', 'LX Factory brunch & market', 'Afternoon: Bairro Alto & Chiado', 'Sunset at Miradouro da Senhora do Monte', 'Time Out Market dinner'],
-        dining: ['Landeau Chocolate at LX', 'Time Out Market vendors'],
-        stay: 'Hotel in Baixa or Alfama',
+        activities: [
+          'Morning: Tram 28 experience (go early, €3)',
+          'LX Factory brunch & Sunday market',
+          'Afternoon: Bairro Alto & Chiado neighborhoods',
+          'Sunset at Miradouro da Senhora do Monte',
+          'Time Out Market for dinner variety',
+        ],
+        dining: [
+          { name: 'Landeau Chocolate', note: 'Famous cake at LX', price: '€10-15pp' },
+          { name: 'Time Out Market', note: 'Pick your favorite stalls', price: '€20-35pp' },
+        ],
+        stay: { name: 'Memmo Alfama', price: '€180-260/night' },
         image: UNSPLASH_IMAGES.lisbonTram,
       },
       {
         date: 'Mon, May 18',
         title: 'Train to Porto',
-        activities: ['Morning Alfa Pendular to Porto (3 hours)', 'Scenic coastal route', 'Arrive Porto mid-afternoon', 'Quick Ribeira walk', 'One port cellar tasting'],
-        dining: ['Dinner: Adega de São Nicolau'],
-        stay: 'Porto hotel (1 night)',
+        activities: [
+          'Morning Alfa Pendular to Porto (3 hours, ~€35)',
+          'Scenic coastal route',
+          'Arrive Porto mid-afternoon',
+          'Quick Ribeira walk',
+          'One port cellar tasting (Graham\'s or Sandeman)',
+          'Dinner on the river',
+        ],
+        dining: [
+          { name: 'Adega de São Nicolau', note: 'Traditional first night', price: '€30-40pp' },
+        ],
+        stay: { name: '1872 River House', price: '€140-180/night', note: 'Boutique B&B • Personal service' },
+        transport: 'Alfa Pendular train Lisbon → Porto ~€35-50',
         image: UNSPLASH_IMAGES.porto,
       },
     ],
@@ -485,9 +638,7 @@ function ItineraryOptions() {
                 key={opt.id}
                 onClick={() => { setActiveOption(opt.id); setExpandedDay(0); }}
                 className={`relative px-6 py-4 rounded-2xl font-semibold transition-all ${
-                  activeOption === opt.id 
-                    ? 'text-white shadow-lg' 
-                    : 'bg-white/10 text-white/70 hover:bg-white/20'
+                  activeOption === opt.id ? 'text-white shadow-lg' : 'bg-white/10 text-white/70 hover:bg-white/20'
                 }`}
                 style={{ backgroundColor: activeOption === opt.id ? OPTION_COLORS[opt.id].primary : undefined }}
                 whileHover={{ scale: 1.02 }}
@@ -496,13 +647,6 @@ function ItineraryOptions() {
                 <span className="text-2xl mr-2">{opt.icon}</span>
                 <span className="hidden sm:inline">{opt.name}</span>
                 <span className="sm:hidden">Option {opt.id}</span>
-                {activeOption === opt.id && (
-                  <motion.div
-                    layoutId="activeTab"
-                    className="absolute inset-0 rounded-2xl -z-10"
-                    style={{ backgroundColor: OPTION_COLORS[opt.id].primary }}
-                  />
-                )}
               </motion.button>
             ))}
           </div>
@@ -510,13 +654,7 @@ function ItineraryOptions() {
 
         {/* Option Content */}
         <AnimatePresence mode="wait">
-          <motion.div
-            key={activeOption}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.3 }}
-          >
+          <motion.div key={activeOption} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }} transition={{ duration: 0.3 }}>
             {/* Option Header */}
             <div className="bg-white/10 backdrop-blur-sm rounded-3xl p-8 mb-8">
               <div className="flex flex-col md:flex-row gap-8">
@@ -546,20 +684,10 @@ function ItineraryOptions() {
             {/* Day-by-Day */}
             <div className="space-y-4">
               {option.days.map((day, i) => (
-                <motion.div
-                  key={i}
-                  className="bg-white rounded-2xl overflow-hidden shadow-lg"
-                  initial={false}
-                >
-                  <button
-                    onClick={() => setExpandedDay(expandedDay === i ? null : i)}
-                    className="w-full p-6 flex items-center justify-between text-left"
-                  >
+                <motion.div key={i} className="bg-white rounded-2xl overflow-hidden shadow-lg" initial={false}>
+                  <button onClick={() => setExpandedDay(expandedDay === i ? null : i)} className="w-full p-6 flex items-center justify-between text-left">
                     <div className="flex items-center gap-4">
-                      <div 
-                        className="w-12 h-12 rounded-full flex items-center justify-center text-white font-bold"
-                        style={{ backgroundColor: color.primary }}
-                      >
+                      <div className="w-12 h-12 rounded-full flex items-center justify-center text-white font-bold" style={{ backgroundColor: color.primary }}>
                         {i + 1}
                       </div>
                       <div>
@@ -576,12 +704,7 @@ function ItineraryOptions() {
                   
                   <AnimatePresence>
                     {expandedDay === i && (
-                      <motion.div
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: 'auto', opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }}
-                        className="overflow-hidden"
-                      >
+                      <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }} className="overflow-hidden">
                         <div className="px-6 pb-6 grid md:grid-cols-2 gap-6">
                           {day.image && (
                             <div className="rounded-xl overflow-hidden h-48">
@@ -592,19 +715,46 @@ function ItineraryOptions() {
                             <h5 className="font-semibold text-sm uppercase tracking-wide text-gray-400 mb-3">Activities</h5>
                             <ul className="space-y-2 mb-4">
                               {day.activities.map((a, j) => (
-                                <li key={j} className="flex items-start gap-2 text-gray-700">
+                                <li key={j} className="flex items-start gap-2 text-gray-700 text-sm">
                                   <span style={{ color: color.primary }}>◆</span> {a}
                                 </li>
                               ))}
                             </ul>
-                            {day.dining && (
-                              <>
-                                <h5 className="font-semibold text-sm uppercase tracking-wide text-gray-400 mb-2">Dining</h5>
-                                <p className="text-gray-600 text-sm">{day.dining.join(' • ')}</p>
-                              </>
-                            )}
+                          </div>
+                          
+                          {/* Dining Section */}
+                          {day.dining && day.dining.length > 0 && (
+                            <div className="md:col-span-2 bg-gray-50 rounded-xl p-4">
+                              <h5 className="font-semibold text-sm uppercase tracking-wide text-gray-400 mb-3">🍽️ Dining</h5>
+                              <div className="grid sm:grid-cols-2 gap-3">
+                                {day.dining.map((d, j) => (
+                                  <div key={j} className="flex justify-between items-start">
+                                    <div>
+                                      <p className="font-medium text-[var(--color-navy)]">{d.name}</p>
+                                      <p className="text-xs text-gray-500">{d.note}</p>
+                                    </div>
+                                    {d.price && <span className="text-xs font-medium px-2 py-1 bg-white rounded-full text-gray-600">{d.price}</span>}
+                                  </div>
+                                ))}
+                              </div>
+                            </div>
+                          )}
+                          
+                          {/* Stay & Transport */}
+                          <div className="md:col-span-2 flex flex-wrap gap-4">
                             {day.stay && (
-                              <p className="mt-3 text-sm"><span className="font-semibold" style={{ color: color.primary }}>Stay:</span> {day.stay}</p>
+                              <div className="flex-1 min-w-[200px] bg-[var(--color-navy)]/5 rounded-xl p-4">
+                                <h5 className="font-semibold text-sm uppercase tracking-wide text-gray-400 mb-2">🛏️ Stay</h5>
+                                <p className="font-medium text-[var(--color-navy)]">{day.stay.name}</p>
+                                <p className="text-sm text-[var(--color-terracotta)] font-semibold">{day.stay.price}</p>
+                                {day.stay.note && <p className="text-xs text-gray-500 mt-1">{day.stay.note}</p>}
+                              </div>
+                            )}
+                            {day.transport && (
+                              <div className="flex-1 min-w-[200px] bg-[var(--color-azulejo)]/10 rounded-xl p-4">
+                                <h5 className="font-semibold text-sm uppercase tracking-wide text-gray-400 mb-2">🚂 Transport</h5>
+                                <p className="text-sm text-gray-700">{day.transport}</p>
+                              </div>
                             )}
                           </div>
                         </div>
@@ -618,7 +768,7 @@ function ItineraryOptions() {
             {/* Convergence Note */}
             <div className="mt-8 bg-white/10 backdrop-blur-sm rounded-2xl p-6 text-center">
               <p className="text-white/80">
-                <span className="text-[var(--color-gold)] font-semibold">→ May 19:</span> All paths lead to Porto Airport where you'll pick up Zach & Lauren at 10am, 
+                <span className="text-[var(--color-gold)] font-semibold">→ May 19:</span> All paths lead to Porto Airport where you'll pick up the <strong>rental car</strong> and meet Zach & Lauren at 10am, 
                 then head to the Douro Valley together!
               </p>
             </div>
@@ -631,34 +781,6 @@ function ItineraryOptions() {
 
 // ============ DOURO VALLEY SECTION ============
 function DouroValley() {
-  const days = [
-    {
-      date: 'Mon-Tue, May 19-20',
-      title: 'Wine Country Immersion',
-      activities: ['Pick up Zach & Lauren at Porto Airport', 'Drive ~1.5 hours to Douro Valley', 'Check into Six Senses or Quinta do Vallado', 'Quinta do Bomfim (Dow\'s) tasting', 'Quinta Nova for lunch with views', 'Sunset over terraced vineyards'],
-      image: UNSPLASH_IMAGES.douroValley,
-    },
-    {
-      date: 'Wed, May 21',
-      title: 'Deep Douro Discovery',
-      activities: ['Quinta de la Rosa tasting', 'Optional: Douro River boat cruise', 'Famous Pinhão tile train station', 'Olive oil tasting at Lagar da Sancha', 'Farewell dinner with friends', 'Stargazing over the valley'],
-      image: UNSPLASH_IMAGES.wine,
-    },
-    {
-      date: 'Thu, May 22',
-      title: 'Douro → Lisbon',
-      activities: ['Leisurely breakfast', 'Say goodbye to Zach & Lauren', '~4 hour scenic drive south', 'Optional: Stop in Coimbra', 'Arrive Lisbon, check in', 'Evening neighborhood stroll'],
-      image: UNSPLASH_IMAGES.porto,
-    },
-  ]
-
-  const wineries = [
-    { name: 'Quinta do Bomfim', note: 'Dow\'s Port, stunning views' },
-    { name: 'Quinta Nova', note: 'Est. 1725, excellent restaurant' },
-    { name: 'Quinta de la Rosa', note: 'Intimate, near Pinhão' },
-    { name: 'Quinta do Vallado', note: 'Free tastings for guests' },
-  ]
-
   return (
     <section id="douro" className="py-24 px-4 relative overflow-hidden">
       <div className="absolute inset-0 -z-10">
@@ -675,8 +797,38 @@ function DouroValley() {
           </p>
         </AnimatedSection>
 
+        {/* Transport Note */}
+        <AnimatedSection className="mb-8">
+          <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 max-w-xl mx-auto text-center">
+            <p className="text-white/80 text-sm">
+              <span className="text-[var(--color-gold)]">🚗</span> <strong>Rental car essential</strong> for Douro Valley. Pick up at Porto Airport, 
+              drop off in Lisbon. Winding roads but stunning views!
+            </p>
+          </div>
+        </AnimatedSection>
+
+        {/* Day Cards */}
         <motion.div className="grid md:grid-cols-3 gap-6 mb-12" variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-          {days.map((day, i) => (
+          {[
+            {
+              date: 'Mon-Tue, May 19-20',
+              title: 'Wine Country Immersion',
+              items: ['Pick up Zach & Lauren at Porto Airport 10am', 'Drive ~1.5 hours to Douro', 'Check into hotel', 'Quinta do Bomfim tasting (~€15-25)', 'Quinta Nova lunch (€40-60pp)', 'Sunset over terraced vineyards'],
+              image: UNSPLASH_IMAGES.douroValley,
+            },
+            {
+              date: 'Wed, May 21',
+              title: 'Deep Douro Discovery',
+              items: ['Quinta de la Rosa tasting', 'Optional: Douro River boat cruise (~€20)', 'Famous Pinhão tile train station', 'Olive oil tasting at Lagar da Sancha', 'Farewell dinner with friends (€50-70pp)'],
+              image: UNSPLASH_IMAGES.wine,
+            },
+            {
+              date: 'Thu, May 22',
+              title: 'Douro → Lisbon',
+              items: ['Leisurely breakfast', 'Say goodbye to Zach & Lauren', 'Drive to Lisbon (~4 hours)', 'Optional: Stop in Coimbra', 'Arrive Lisbon, check in', 'Evening neighborhood walk'],
+              image: UNSPLASH_IMAGES.porto,
+            },
+          ].map((day, i) => (
             <motion.div key={i} variants={scaleIn} className="card-luxury overflow-hidden group">
               <div className="h-40 overflow-hidden">
                 <img src={day.image} alt="" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
@@ -685,22 +837,55 @@ function DouroValley() {
                 <p className="text-xs uppercase tracking-widest text-[var(--color-terracotta)]">{day.date}</p>
                 <h3 className="font-semibold text-lg text-[var(--color-navy)] mt-1 mb-3">{day.title}</h3>
                 <ul className="space-y-1 text-sm text-gray-600">
-                  {day.activities.slice(0, 4).map((a, j) => <li key={j}>• {a}</li>)}
+                  {day.items.map((item, j) => <li key={j}>• {item}</li>)}
                 </ul>
               </div>
             </motion.div>
           ))}
         </motion.div>
 
-        {/* Wineries */}
+        {/* Hotels */}
         <AnimatedSection>
+          <div className="grid md:grid-cols-2 gap-6">
+            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6">
+              <div className="flex items-start gap-4">
+                <span className="text-3xl">🏨</span>
+                <div>
+                  <h3 className="font-semibold text-white text-lg">Six Senses Douro Valley</h3>
+                  <p className="text-[var(--color-gold)] font-semibold">€400-600/night (or IHG points!)</p>
+                  <p className="text-white/70 text-sm mt-2">
+                    The splurge option. World-class spa, organic gardens, infinity pool. 
+                    Lauren may have a points play through IHG!
+                  </p>
+                  <p className="text-xs text-white/50 mt-2">✓ IHG One Rewards eligible</p>
+                </div>
+              </div>
+            </div>
+            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6">
+              <div className="flex items-start gap-4">
+                <span className="text-3xl">🍷</span>
+                <div>
+                  <h3 className="font-semibold text-white text-lg">Quinta do Vallado</h3>
+                  <p className="text-[var(--color-gold)] font-semibold">€180-280/night</p>
+                  <p className="text-white/70 text-sm mt-2">
+                    Wine estate hotel right in the vineyards. Modern design, 
+                    excellent restaurant, and free tastings for guests!
+                  </p>
+                  <p className="text-xs text-white/50 mt-2">✓ Free wine tasting included</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </AnimatedSection>
+
+        {/* Wineries Quick List */}
+        <AnimatedSection className="mt-8">
           <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6">
-            <h3 className="text-xl font-semibold text-white mb-4 text-center">Top Quintas</h3>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-              {wineries.map((w, i) => (
-                <div key={i} className="bg-white/10 rounded-xl p-4 text-center">
-                  <p className="font-semibold text-white">{w.name}</p>
-                  <p className="text-xs text-white/60 mt-1">{w.note}</p>
+            <h3 className="text-lg font-semibold text-white mb-4 text-center">Top Quintas (€15-30 tastings)</h3>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+              {['Quinta do Bomfim', 'Quinta Nova', 'Quinta de la Rosa', 'Quinta do Vallado'].map((q, i) => (
+                <div key={i} className="bg-white/10 rounded-xl p-3">
+                  <p className="text-white font-medium text-sm">{q}</p>
                 </div>
               ))}
             </div>
@@ -713,20 +898,6 @@ function DouroValley() {
 
 // ============ LISBON SECTION ============
 function Lisbon() {
-  const days = [
-    { date: 'Thu Evening, May 22', title: 'Arrive in Lisbon', items: ['Check into hotel', 'Sunset at a miradouro', 'Light dinner in Baixa'] },
-    { date: 'Fri, May 23', title: 'Explore + Welcome Party', items: ['Belém: Tower, Monastery, Pastéis', 'Time Out Market or LX Factory', 'Alfama wander', 'Evening: Wedding welcome party 🎉'] },
-    { date: 'Sat, May 24', title: 'Wedding Day 💒', items: ['Relax morning', 'Get ready in style', 'Wedding at Palácio do Grilo', 'Dance the night away'] },
-    { date: 'Sun, May 25', title: 'Fly Home', items: ['Early flight LIS → JFK → SFO', 'Arrive SFO 6:49pm', 'Dream of returning...'] },
-  ]
-
-  const neighborhoods = [
-    { name: 'Alfama', icon: '🎸', vibe: 'Fado, narrow streets' },
-    { name: 'Belém', icon: '🏛️', vibe: 'Monuments, pastries' },
-    { name: 'Bairro Alto', icon: '🌙', vibe: 'Nightlife, bars' },
-    { name: 'LX Factory', icon: '🎨', vibe: 'Creative hub' },
-  ]
-
   return (
     <section id="lisbon" className="py-24 px-4 bg-[var(--color-cream)]">
       <div className="max-w-6xl mx-auto">
@@ -735,8 +906,13 @@ function Lisbon() {
           <h2 className="font-[Playfair_Display] text-5xl md:text-7xl mt-4 text-[var(--color-navy)]">Lisboa</h2>
         </AnimatedSection>
 
-        <div className="grid md:grid-cols-4 gap-4 mb-12">
-          {days.map((d, i) => (
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
+          {[
+            { date: 'Thu PM, May 22', title: 'Arrive Lisbon', items: ['Check into boutique hotel', 'Sunset at a miradouro', 'Light dinner (€25-35pp)'] },
+            { date: 'Fri, May 23', title: 'Explore + Welcome Party', items: ['Belém: Tower, Monastery, Pastéis', 'Time Out Market lunch (€15-25pp)', 'Alfama wander', 'Welcome party 🎉'] },
+            { date: 'Sat, May 24', title: 'Wedding Day 💒', items: ['Relax morning', 'Get ready in style', 'Wedding at Palácio do Grilo'] },
+            { date: 'Sun, May 25', title: 'Fly Home', items: ['Early flight LIS → JFK → SFO', 'Arrive SFO 6:49pm'] },
+          ].map((d, i) => (
             <motion.div key={i} className="card-luxury p-5" whileHover={{ y: -4 }}>
               <p className="text-xs uppercase tracking-widest text-[var(--color-terracotta)]">{d.date}</p>
               <h3 className="font-semibold text-[var(--color-navy)] mt-1 mb-3">{d.title}</h3>
@@ -747,14 +923,64 @@ function Lisbon() {
           ))}
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          {neighborhoods.map((n, i) => (
-            <motion.div key={i} className="card-luxury p-4 text-center" whileHover={{ scale: 1.05 }}>
-              <span className="text-3xl">{n.icon}</span>
-              <h4 className="font-semibold text-[var(--color-navy)] mt-2">{n.name}</h4>
-              <p className="text-xs text-gray-500">{n.vibe}</p>
-            </motion.div>
-          ))}
+        {/* Hotel Recommendations */}
+        <AnimatedSection className="mb-12">
+          <div className="bg-white rounded-2xl p-6 shadow-md">
+            <h3 className="font-semibold text-[var(--color-navy)] mb-4">🛏️ Lisbon Hotel Options (€180-280/night)</h3>
+            <div className="grid sm:grid-cols-3 gap-4">
+              {[
+                { name: 'Memmo Alfama', note: 'Design hotel, pool, Tagus views', area: 'Alfama' },
+                { name: 'Santiago de Alfama', note: '15th-century palace, 5-star', area: 'Alfama' },
+                { name: 'AlmaLusa Baixa-Chiado', note: 'Central, Portuguese design', area: 'Baixa' },
+              ].map((h, i) => (
+                <div key={i} className="border border-gray-100 rounded-xl p-4">
+                  <p className="font-medium text-[var(--color-navy)]">{h.name}</p>
+                  <p className="text-xs text-[var(--color-terracotta)]">{h.area}</p>
+                  <p className="text-xs text-gray-500 mt-1">{h.note}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </AnimatedSection>
+
+        {/* Neighborhoods + Dining */}
+        <div className="grid md:grid-cols-2 gap-6">
+          <div className="card-luxury p-6">
+            <h3 className="font-semibold text-[var(--color-navy)] mb-4">📍 Neighborhoods</h3>
+            <div className="grid grid-cols-2 gap-3">
+              {[
+                { name: 'Alfama', icon: '🎸', vibe: 'Fado, soul of Lisbon' },
+                { name: 'Belém', icon: '🏛️', vibe: 'Monuments, pastéis' },
+                { name: 'Bairro Alto', icon: '🌙', vibe: 'Nightlife, bars' },
+                { name: 'LX Factory', icon: '🎨', vibe: 'Creative market' },
+              ].map((n, i) => (
+                <div key={i} className="text-center p-3 bg-gray-50 rounded-xl">
+                  <span className="text-2xl">{n.icon}</span>
+                  <p className="font-medium text-sm mt-1">{n.name}</p>
+                  <p className="text-xs text-gray-500">{n.vibe}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="card-luxury p-6">
+            <h3 className="font-semibold text-[var(--color-navy)] mb-4">🍽️ Dining Picks</h3>
+            <div className="space-y-3">
+              {[
+                { name: 'Taberna da Rua das Flores', note: 'Reserve ahead! (€40-55pp)', type: 'Splurge' },
+                { name: 'Time Out Market', note: 'Best of Lisbon stalls (€15-25pp)', type: 'Casual' },
+                { name: 'Cervejaria Ramiro', note: 'Famous seafood (€50-70pp)', type: 'Splurge' },
+                { name: 'Pastéis de Belém', note: 'The original since 1837 (€5)', type: 'Must-do' },
+              ].map((r, i) => (
+                <div key={i} className="flex justify-between items-center">
+                  <div>
+                    <p className="font-medium text-sm">{r.name}</p>
+                    <p className="text-xs text-gray-500">{r.note}</p>
+                  </div>
+                  <span className="text-xs px-2 py-1 bg-gray-100 rounded-full">{r.type}</span>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -803,12 +1029,8 @@ function Wedding() {
               18th-century palace in Lisbon's Beato district. An immersive venue combining art, 
               theater, and historic grandeur.
             </p>
-            <a 
-              href="https://maps.google.com/?q=Palacio+do+Grilo+Lisbon"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-[var(--color-gold)] hover:underline mt-4 text-sm"
-            >
+            <a href="https://maps.google.com/?q=Palacio+do+Grilo+Lisbon" target="_blank" rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-[var(--color-gold)] hover:underline mt-4 text-sm">
               📍 Calçada do Duque de Lafões 1, Lisbon
             </a>
           </div>
@@ -830,6 +1052,7 @@ function Footer() {
         </div>
         <p className="font-[Playfair_Display] text-3xl mb-4">Spain & Portugal 2026</p>
         <p className="text-white/60">May 13-25 • Barron & Nina</p>
+        <p className="text-white/40 text-xs mt-4">Budget: Semi-luxurious • €150-300/night hotels • €30-80 dinners</p>
         <div className="flex justify-center gap-6 mt-8 text-3xl">
           <span>🇪🇸</span><span>🇵🇹</span><span>🍷</span><span>💒</span>
         </div>
