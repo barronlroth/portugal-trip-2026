@@ -847,31 +847,17 @@ function DouroValley() {
         {/* Hotels */}
         <AnimatedSection>
           <div className="grid md:grid-cols-2 gap-6">
-            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6">
+            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 ring-2 ring-[var(--color-gold)]">
               <div className="flex items-start gap-4">
                 <span className="text-3xl">🏨</span>
                 <div>
-                  <h3 className="font-semibold text-white text-lg">Six Senses Douro Valley</h3>
-                  <p className="text-[var(--color-gold)] font-semibold">€400-600/night (or IHG points!)</p>
+                  <h3 className="font-semibold text-white text-lg">Octant Douro <span className="text-xs bg-[var(--color-gold)] text-black px-2 py-0.5 rounded-full ml-2">BOOKED ✓</span></h3>
+                  <p className="text-[var(--color-gold)] font-semibold">$345/night · 2 rooms via Agoda</p>
                   <p className="text-white/70 text-sm mt-2">
-                    The splurge option. World-class spa, organic gardens, infinity pool. 
-                    Lauren may have a points play through IHG!
+                    Boutique hotel in the heart of Douro Valley wine country. 
+                    Beautiful property with vineyard views — the group pick!
                   </p>
-                  <p className="text-xs text-white/50 mt-2">✓ IHG One Rewards eligible</p>
-                </div>
-              </div>
-            </div>
-            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6">
-              <div className="flex items-start gap-4">
-                <span className="text-3xl">🍷</span>
-                <div>
-                  <h3 className="font-semibold text-white text-lg">Quinta do Vallado</h3>
-                  <p className="text-[var(--color-gold)] font-semibold">€180-280/night</p>
-                  <p className="text-white/70 text-sm mt-2">
-                    Wine estate hotel right in the vineyards. Modern design, 
-                    excellent restaurant, and free tastings for guests!
-                  </p>
-                  <p className="text-xs text-white/50 mt-2">✓ Free wine tasting included</p>
+                  <p className="text-xs text-white/50 mt-2">✓ Booked · $1,095 total per room (3 nights)</p>
                 </div>
               </div>
             </div>
