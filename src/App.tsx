@@ -898,6 +898,11 @@ function DouroValley() {
                 </div>
               ))}
             </div>
+            <div className="mt-6 text-center">
+              <a href="/portugal-trip-2026/douro-activities/" className="inline-flex items-center gap-2 bg-[var(--color-gold)] text-[var(--color-navy)] px-6 py-3 rounded-full font-semibold hover:shadow-lg hover:shadow-[var(--color-gold)]/30 transition-all">
+                🍷 Explore All Vineyards & Vote → 
+              </a>
+            </div>
           </div>
         </AnimatedSection>
       </div>

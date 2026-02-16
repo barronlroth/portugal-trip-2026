@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Douro Valley Vineyards & Tastings | Iberia 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy: #1a1a2e;
+      --gold: #d4a853;
+      --cream: #faf8f5;
+      --terracotta: #c05621;
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family:'Inter',sans-serif; background:var(--navy); color:#fff; min-height:100vh; }
+    h1,h2,h3,h4 { font-family:'Playfair Display',serif; }
+    a { color:var(--gold); text-decoration:none; }
+    a:hover { text-decoration:underline; }
+
+    .container { max-width:1200px; margin:0 auto; padding:0 24px; }
+
+    /* Header */
+    .hero { text-align:center; padding:60px 24px 40px; background:linear-gradient(180deg,rgba(26,26,46,.95),rgba(26,26,46,.8)),url('https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?auto=format&fit=crop&w=2000&q=80') center/cover; }
+    .hero .back { display:inline-flex; align-items:center; gap:6px; font-size:14px; color:var(--gold); margin-bottom:24px; }
+    .hero h1 { font-size:clamp(2rem,5vw,3.5rem); margin-bottom:8px; }
+    .hero .sub { color:rgba(255,255,255,.7); font-size:15px; max-width:600px; margin:0 auto 24px; line-height:1.6; }
+    .hero .dates { color:var(--gold); font-size:13px; letter-spacing:.3em; text-transform:uppercase; margin-bottom:12px; }
+    .diamond { color:var(--gold); }
+
+    /* Transport Section */
+    .transport { background:rgba(255,255,255,.05); border-radius:16px; padding:24px; margin:32px auto; max-width:900px; }
+    .transport h2 { font-size:1.4rem; margin-bottom:16px; text-align:center; }
+    .transport-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:16px; }
+    .transport-card { background:rgba(255,255,255,.08); border-radius:12px; padding:16px; }
+    .transport-card h4 { font-size:15px; margin-bottom:6px; color:var(--gold); }
+    .transport-card p { font-size:13px; color:rgba(255,255,255,.7); line-height:1.5; }
+
+    /* Filters */
+    .filters { display:flex; flex-wrap:wrap; gap:8px; justify-content:center; padding:24px 0; position:sticky; top:0; z-index:10; background:var(--navy); border-bottom:1px solid rgba(255,255,255,.1); }
+    .filter-btn { background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.15); color:#fff; padding:8px 16px; border-radius:999px; font-size:13px; cursor:pointer; transition:.2s; font-family:'Inter',sans-serif; }
+    .filter-btn:hover, .filter-btn.active { background:var(--gold); color:var(--navy); border-color:var(--gold); font-weight:600; }
+    .filter-group { display:flex; align-items:center; gap:6px; flex-wrap:wrap; }
+    .filter-label { font-size:11px; text-transform:uppercase; letter-spacing:.15em; color:rgba(255,255,255,.5); margin-right:4px; }
+
+    /* Cards Grid */
+    .cards { display:grid; grid-template-columns:repeat(auto-fill,minmax(340px,1fr)); gap:24px; padding:32px 0 64px; }
+    .card { background:rgba(255,255,255,.06); border-radius:16px; overflow:hidden; border:1px solid rgba(255,255,255,.08); transition:transform .2s, box-shadow .2s; }
+    .card:hover { transform:translateY(-4px); box-shadow:0 12px 40px rgba(0,0,0,.3); }
+    .card-img { height:180px; background-size:cover; background-position:center; position:relative; }
+    .card-img .badge { position:absolute; top:12px; right:12px; background:var(--gold); color:var(--navy); font-size:11px; font-weight:700; padding:4px 10px; border-radius:999px; }
+    .card-img .distance { position:absolute; bottom:12px; left:12px; background:rgba(0,0,0,.6); backdrop-filter:blur(4px); color:#fff; font-size:11px; padding:4px 10px; border-radius:999px; }
+    .card-body { padding:20px; }
+    .card-body h3 { font-size:1.15rem; margin-bottom:4px; }
+    .card-body .location { font-size:12px; color:rgba(255,255,255,.5); margin-bottom:12px; }
+    .card-body .meta { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:12px; }
+    .card-body .tag { background:rgba(255,255,255,.08); padding:3px 10px; border-radius:999px; font-size:11px; color:rgba(255,255,255,.7); }
+    .card-body .desc { font-size:13px; color:rgba(255,255,255,.65); line-height:1.6; margin-bottom:16px; }
+    .card-body .includes { font-size:12px; color:rgba(255,255,255,.5); margin-bottom:16px; line-height:1.6; }
+    .card-body .includes strong { color:rgba(255,255,255,.8); }
+    .card-actions { display:flex; gap:8px; align-items:center; }
+    .btn-book { background:var(--gold); color:var(--navy); padding:8px 20px; border-radius:999px; font-size:13px; font-weight:600; border:none; cursor:pointer; font-family:'Inter',sans-serif; transition:.2s; }
+    .btn-book:hover { filter:brightness(1.1); transform:scale(1.02); text-decoration:none; }
+    .btn-vote { background:rgba(255,255,255,.1); color:#fff; padding:8px 16px; border-radius:999px; font-size:13px; font-weight:500; border:1px solid rgba(255,255,255,.2); cursor:pointer; font-family:'Inter',sans-serif; transition:.2s; display:flex; align-items:center; gap:4px; }
+    .btn-vote:hover { background:rgba(255,255,255,.2); }
+    .btn-vote.voted { background:var(--terracotta); border-color:var(--terracotta); }
+    .price { font-size:1.1rem; font-weight:700; color:var(--gold); margin-bottom:2px; }
+    .duration { font-size:12px; color:rgba(255,255,255,.5); }
+
+    .card.hidden { display:none; }
+
+    /* Footer */
+    .footer { text-align:center; padding:40px 24px; border-top:1px solid rgba(255,255,255,.1); color:rgba(255,255,255,.4); font-size:13px; }
+
+    @media(max-width:600px) {
+      .cards { grid-template-columns:1fr; }
+      .filters { padding:16px 12px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="hero">
+  <a href="/portugal-trip-2026/" class="back">← Back to Itinerary</a>
+  <p class="dates">May 19–22, 2026</p>
+  <h1>Douro Valley <span class="diamond">◆</span> Vineyards & Tastings</h1>
+  <p class="sub">Every quinta, tasting room, and wine experience near Octant Douro — curated for our group. Vote for your favorites!</p>
+</div>
+
+<div class="container">
+
+  <!-- Transport -->
+  <div class="transport">
+    <h2>🚗 Getting There</h2>
+    <div class="transport-grid">
+      <div class="transport-card">
+        <h4>🚗 Rental Car (Recommended)</h4>
+        <p>Porto Airport → Douro Valley is ~1.5 hours via the A4/IP4. Pick up at OPO, drop in Lisbon. The N222 road from Régua to Pinhão is one of the world's most scenic drives. Essential for quinta-hopping.</p>
+      </div>
+      <div class="transport-card">
+        <h4>🚂 Train (Douro Line)</h4>
+        <p>Porto São Bento → Peso da Régua (€8–10, 2h) or Pinhão (€11, 2.5h). Scenic riverside route. Limited schedules — check <a href="https://www.cp.pt/passageiros/en" target="_blank">cp.pt</a>. Many quintas are walkable from Pinhão station.</p>
+      </div>
+      <div class="transport-card">
+        <h4>🚢 River Cruise</h4>
+        <p>Day cruises from Porto to Régua/Pinhão (~€50–80pp) with lunch & tastings included. A relaxing way to arrive. Return by train. Book via <a href="https://www.dourovalley-tours.com/" target="_blank">dourovalley-tours.com</a>.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Filters -->
+  <div class="filters" id="filters">
+    <div class="filter-group">
+      <span class="filter-label">Type:</span>
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="tasting">Tasting</button>
+      <button class="filter-btn" data-filter="tour">Tour + Tasting</button>
+      <button class="filter-btn" data-filter="food">Food Pairing</button>
+      <button class="filter-btn" data-filter="experience">Experience</button>
+    </div>
+    <div class="filter-group">
+      <span class="filter-label">Price:</span>
+      <button class="filter-btn" data-price="budget">Under €30</button>
+      <button class="filter-btn" data-price="mid">€30–75</button>
+      <button class="filter-btn" data-price="premium">€75+</button>
+    </div>
+    <div class="filter-group">
+      <span class="filter-label">Distance:</span>
+      <button class="filter-btn" data-dist="close">< 10 min</button>
+      <button class="filter-btn" data-dist="medium">10–20 min</button>
+      <button class="filter-btn" data-dist="far">20+ min</button>
+    </div>
+  </div>
+
+  <!-- Cards -->
+  <div class="cards" id="cards">
+  </div>
+
+</div>
+
+<div class="footer">
+  <p><span class="diamond">◆</span> Iberia 2026 — Douro Valley Guide</p>
+  <p style="margin-top:8px">Prices are approximate and may vary. Book ahead for May availability.</p>
+</div>
+
+<script>
+const QUINTAS = [
+  {
+    name: "Quinta do Bomfim",
+    location: "Pinhão",
+    distance: "15 min",
+    distCat: "medium",
+    price: "€30–90",
+    priceMin: 30,
+    types: ["tour","tasting"],
+    duration: "1–1.5h",
+    image: "https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?auto=format&fit=crop&w=800&q=80",
+    desc: "Symington family estate producing legendary Dow's Ports. Stunning riverside terrace, historic 1896 lodge, and modern lagares. Global winner Best of Wine Tourism 2024.",
+    includes: "Classic Tasting (€30): 3 ports. Douro DOC (€50): 4 wines. Dow's (€55): LBV + 30yr Tawny + Vintage Port. Premium (€90): 40yr Tawny + vintage ports. Vineyard walks available. Picnics bookable 24h ahead.",
+    booking: "https://www.symington.com/visit/quinta-do-bomfim/3",
+    bookHow: "Online booking",
+    badge: "⭐ Top Pick"
+  },
+  {
+    name: "Quinta Nova",
+    location: "Covas do Douro",
+    distance: "20 min",
+    distCat: "far",
+    price: "€20–60",
+    priceMin: 20,
+    types: ["tour","tasting","food"],
+    duration: "1–2h",
+    image: "https://images.unsplash.com/photo-1560179406-1c6c60e0dc76?auto=format&fit=crop&w=800&q=80",
+    desc: "Historic 1756 estate with breathtaking panoramic views, the only wine museum in the Douro, riverside chapel, and marked hiking trails. Relais & Châteaux property with acclaimed Terraçu's restaurant.",
+    includes: "Wine tastings from €20. Award-winning Mirabilis & Aeternus ranges. Wine museum visit. Restaurant lunch with valley views (€40–60pp). Hiking trails on property.",
+    booking: "https://www.quintanova.com/en/wine-tourism/wine-tasting/",
+    bookHow: "Email or phone: +351 254 730 430",
+    badge: "⭐ Top Pick"
+  },
+  {
+    name: "Quinta de la Rosa",
+    location: "Pinhão",
+    distance: "15 min",
+    distCat: "medium",
+    price: "€15–40",
+    priceMin: 15,
+    types: ["tour","tasting","food"],
+    duration: "1–1.5h",
+    image: "https://images.unsplash.com/photo-1516594915697-87eb3b1c14ea?auto=format&fit=crop&w=800&q=80",
+    desc: "Family-owned riverside estate since 1906, known for distinctive drier Port style and excellent DOC wines. Atmospheric tasting room in the port ageing cellar overlooking the Douro. Walkable from Pinhão (15–20 min along river).",
+    includes: "Tastings from €15 (basic) to €40 (Poeira premium). Cozinha da Clara restaurant (fine dining, terrace views). Tim's Terrace for casual burgers & pizza. Hotel with pool.",
+    booking: "https://www.quintadelarosa.com/",
+    bookHow: "Online or email: dpo@quintadelarosa.com",
+    badge: "⭐ Top Pick"
+  },
+  {
+    name: "Quinta do Vallado",
+    location: "Peso da Régua",
+    distance: "25 min",
+    distCat: "far",
+    price: "€20–50",
+    priceMin: 20,
+    types: ["tour","tasting","food","experience"],
+    duration: "1.25h",
+    image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80",
+    desc: "Historic estate from 1716, one of the oldest in the Douro. Striking modern architecture by Álvaro Siza Vieira alongside traditional buildings. Beautiful gardens, pools, and organic viticulture. Wine hotel on-site.",
+    includes: "Guided tours daily in EN (11am, 2:30pm, 4:30pm) — 1h15. Private tours & custom tastings available. Blending workshops (2h, min 4 people). Wine lunches & dinners bookable.",
+    booking: "https://fareharbor.com/embeds/book/quinta-do-vallado/?full-items=yes&flow=990516&language=EN",
+    bookHow: "Online booking via FareHarbor",
+    badge: "⭐ Top Pick"
+  },
+  {
+    name: "Quinta da Roêda (Croft)",
+    location: "Pinhão",
+    distance: "10 min",
+    distCat: "close",
+    price: "€20–50",
+    priceMin: 20,
+    types: ["tour","tasting","food","experience"],
+    duration: "1–2h",
+    image: "https://images.unsplash.com/photo-1567529692333-de9fd6772897?auto=format&fit=crop&w=800&q=80",
+    desc: "\"The jewel of the Douro\" — Croft's flagship estate with some of the region's oldest vine terraces. Taste the famous Croft Pink rosé port. Picnics on shaded vineyard terraces with world-class views. Accommodates groups up to 20.",
+    includes: "Guided vineyard tour + tasting. Picnic baskets (order in advance). BBQ & regional buffet options. Private dinners & events. Open every day including weekends.",
+    booking: "https://croftport.com/en/quinta-da-roeda-wine-tourism/",
+    bookHow: "Email/phone form on website. Tel: +351 932 640 072",
+    badge: "Group Friendly"
+  },
+  {
+    name: "Quinta das Carvalhas",
+    location: "Pinhão",
+    distance: "10 min",
+    distCat: "close",
+    price: "€15–45",
+    priceMin: 15,
+    types: ["tour","tasting","food"],
+    duration: "1–2h",
+    image: "https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?auto=format&fit=crop&w=800&q=80",
+    desc: "Iconic 360° panoramic views from the hilltop Casa Redonda. Owned by Portugal's oldest wine company (Real Companhia Velha, est. 1756). Walk-in tastings available — great for spontaneous visits!",
+    includes: "Vineyard walk + port tasting (~€15). Minibus sightseeing tour. Signature Tour with viticulturist Álvaro Martinho: 4 DOC wines + cheese/charcuterie + port (~€45). Walk-in tastings accepted.",
+    booking: "https://realcompanhiavelha.pt/pt/quintas/quinta-das-carvalhas",
+    bookHow: "Walk-in or book online",
+    badge: "Best Views"
+  },
+  {
+    name: "Quinta da Pacheca",
+    location: "Lamego",
+    distance: "20 min",
+    distCat: "far",
+    price: "€15–50",
+    priceMin: 15,
+    types: ["tour","tasting","experience"],
+    duration: "1–2h",
+    image: "https://images.unsplash.com/photo-1474722883778-792e7990302f?auto=format&fit=crop&w=800&q=80",
+    desc: "One of the first quintas to bottle under its own label. Famous worldwide for the unique Wine Barrel hotel rooms. Beautiful ageing cellar and outdoor terrace with sofas. Larger estate — expect more visitors.",
+    includes: "Tour of cellars + tasting from €15. Wine barrel accommodation experience. Grape stomp during harvest season. Outdoor terrace with valley views.",
+    booking: "https://quintadapacheca.com/",
+    bookHow: "Online booking on website"
+  },
+  {
+    name: "Quinta do Crasto",
+    location: "Sabrosa",
+    distance: "25 min",
+    distCat: "far",
+    price: "€15–70",
+    priceMin: 15,
+    types: ["tour","tasting","food"],
+    duration: "1.5–3h",
+    image: "https://images.unsplash.com/photo-1504279577054-acfeccf8fc52?auto=format&fit=crop&w=800&q=80",
+    desc: "Ancient estate with Roman origins and spectacular high vantage point. Member of the prestigious Douro Boys group. Exceptional single-vineyard wines from century-old vines. Winding road but incredible views.",
+    includes: "Tastings from €15–70 (5 wines typical). Optional lunches or dinners. Douro River boat trips. Farm store for purchases. Stunning old-vine vineyards.",
+    booking: "https://quintadocrasto.pt/",
+    bookHow: "Book via website or email"
+  },
+  {
+    name: "Quinta do Tedo",
+    location: "Folgosa (Armamar)",
+    distance: "15 min",
+    distCat: "medium",
+    price: "€15–35",
+    priceMin: 15,
+    types: ["tour","tasting"],
+    duration: "1–1.5h",
+    image: "https://images.unsplash.com/photo-1544947950-fa07a98d237f?auto=format&fit=crop&w=800&q=80",
+    desc: "Charming boutique winery at the confluence of Douro and Tedo rivers. First certified organic vineyard in the Douro. Franco-American-Portuguese ownership brings unique perspectives. Hand-harvested, some foot-crushed grapes.",
+    includes: "Personal guided tours in stunning ecological reserve. Educational, intimate tastings. Organic wine focus. Beautiful riverside setting.",
+    booking: "https://www.quintadotedo.com/",
+    bookHow: "Book via website or email"
+  },
+  {
+    name: "Quinta do Noval",
+    location: "São Cristóvão do Douro",
+    distance: "20 min",
+    distCat: "far",
+    price: "€30–100+",
+    priceMin: 30,
+    types: ["tour","tasting"],
+    duration: "1.5–2h",
+    image: "https://images.unsplash.com/photo-1566903451935-7bc1462dfc5d?auto=format&fit=crop&w=800&q=80",
+    desc: "Known worldwide for the iconic Noval Nacional — from ungrafted pre-phylloxera vines. Dating to 1715, these terraced vineyards are among the most photographed in the Douro. Exclusive and premium experience.",
+    includes: "Tours and tastings by appointment only. Premium port flights. Historic vineyard walk. One of the world's most prestigious port producers.",
+    booking: "https://www.quintadonoval.com/",
+    bookHow: "By appointment only — book well ahead",
+    badge: "Premium"
+  },
+  {
+    name: "Quinta do Seixo (Sandeman)",
+    location: "Valença do Douro",
+    distance: "15 min",
+    distCat: "medium",
+    price: "€15–40",
+    priceMin: 15,
+    types: ["tour","tasting"],
+    duration: "1–1.5h",
+    image: "https://images.unsplash.com/photo-1584916201218-f4242ceb4809?auto=format&fit=crop&w=800&q=80",
+    desc: "Sandeman's 100-hectare Douro estate with modern visitor center. Traditional architecture meets modern winemaking facilities. Detailed insights into port production methods.",
+    includes: "Guided tour + tasting from €15. Modern visitor center experience. Learn about Sandeman's port production. Shop on-site.",
+    booking: "https://www.sandeman.com/port-wine/visit/quinta-do-seixo-douro/",
+    bookHow: "Online booking"
+  },
+  {
+    name: "Quinta do Panascal (Fonseca)",
+    location: "Tavora Valley",
+    distance: "30 min",
+    distCat: "far",
+    price: "€10–25",
+    priceMin: 10,
+    types: ["tour","tasting"],
+    duration: "1h",
+    image: "https://images.unsplash.com/photo-1590073242678-70ee3fc28e8e?auto=format&fit=crop&w=800&q=80",
+    desc: "Fonseca's flagship vineyard and one of the first quintas to open for public visits (1992). Features an innovative self-guided audio tour through the vineyards — walk at your own pace.",
+    includes: "Self-guided audio vineyard tour. Port wine tasting. One of the most affordable visits in the region. Historic property with beautiful terraces.",
+    booking: "https://www.fonseca.pt/en/vineyards-and-douro/quinta-panascal",
+    bookHow: "Book online or walk-in"
+  },
+  {
+    name: "Quinta de São Luiz (Kopke)",
+    location: "Adorigo",
+    distance: "15 min",
+    distCat: "medium",
+    price: "€20–50",
+    priceMin: 20,
+    types: ["tour","tasting"],
+    duration: "1–1.5h",
+    image: "https://images.unsplash.com/photo-1547595628-c61a29f496f0?auto=format&fit=crop&w=800&q=80",
+    desc: "Home to the oldest port wine brand in the world (established 1638). Known for producing premium tawny and vintage ports. Rich history spanning nearly 400 years.",
+    includes: "Guided tour of historic cellars. Tasting of premium tawny ports. Learn about Kopke's 4-century winemaking heritage.",
+    booking: "https://kopke1638.com/wine-tourism/",
+    bookHow: "Book via website"
+  },
+  {
+    name: "Quinta do Portal",
+    location: "Celeirós do Douro",
+    distance: "30 min",
+    distCat: "far",
+    price: "€15–45",
+    priceMin: 15,
+    types: ["tour","tasting"],
+    duration: "1–2h",
+    image: "https://images.unsplash.com/photo-1578911373434-0cb395d2cbfb?auto=format&fit=crop&w=800&q=80",
+    desc: "Award-winning architecture (Douro Architecture Prize 2011). Innovative approach — ages wine on-site using cork/shale-integrated warehouse instead of shipping to Gaia. Fascinating for wine production enthusiasts.",
+    includes: "Tour of architecturally significant cellar. Extensive tasting programs. Learn about non-traditional ageing methods. Wine shop.",
+    booking: "https://quintadoportal.com/en/",
+    bookHow: "Book via website"
+  },
+  {
+    name: "Quinta de Marrocos",
+    location: "Lamego",
+    distance: "25 min",
+    distCat: "far",
+    price: "€10–25",
+    priceMin: 10,
+    types: ["tasting","experience"],
+    duration: "1–2h",
+    image: "https://images.unsplash.com/photo-1601662528567-526cd06f6582?auto=format&fit=crop&w=800&q=80",
+    desc: "Recognizable by its distinctive twin cypress trees. Small family estate preserving traditional methods — all vineyard work done by hand on the steep Douro terraces. Intimate and authentic.",
+    includes: "Comprehensive tastings of terroir wines. Old vine heritage focus. Winemaking workshops available. Hands-on harvest experience in season.",
+    booking: "https://www.quintademarrocos.pt/",
+    bookHow: "Email or phone"
+  },
+  {
+    name: "Quinta de Santa Eufémia",
+    location: "Lamego",
+    distance: "20 min",
+    distCat: "far",
+    price: "€10–20",
+    priceMin: 10,
+    types: ["tour","tasting"],
+    duration: "1h",
+    image: "https://images.unsplash.com/photo-1566734904496-9309bb12f2e6?auto=format&fit=crop&w=800&q=80",
+    desc: "Fourth-generation family estate dating to 1864. 45 hectares on the left bank of the Douro. Over 160 years of viticultural expertise with wines aged in oak casks on-site. Excellent value.",
+    includes: "Estate tour + tasting from €10. Oak cask ageing cellars. 45 hectares of vineyards to explore. Very affordable option.",
+    booking: "https://www.quintasantaeufemia.com/",
+    bookHow: "Email or phone"
+  }
+];
+
+// Render cards
+function renderCards(filter, priceFilter, distFilter) {
+  const container = document.getElementById('cards');
+  container.innerHTML = '';
+  
+  QUINTAS.forEach((q, i) => {
+    const matchesType = filter === 'all' || q.types.includes(filter);
+    const matchesPrice = !priceFilter || 
+      (priceFilter === 'budget' && q.priceMin < 30) ||
+      (priceFilter === 'mid' && q.priceMin >= 15 && q.priceMin <= 75) ||
+      (priceFilter === 'premium' && q.priceMin >= 50);
+    const matchesDist = !distFilter ||
+      (distFilter === 'close' && q.distCat === 'close') ||
+      (distFilter === 'medium' && (q.distCat === 'close' || q.distCat === 'medium')) ||
+      (distFilter === 'far');
+    
+    if (!matchesType || !matchesPrice || !matchesDist) return;
+
+    const votes = localStorage.getItem('vote_' + i) ? true : false;
+    const voteCount = parseInt(localStorage.getItem('votecount_' + i) || '0');
+    
+    const card = document.createElement('div');
+    card.className = 'card';
+    card.innerHTML = `
+      <div class="card-img" style="background-image:url('${q.image}')">
+        ${q.badge ? `<span class="badge">${q.badge}</span>` : ''}
+        <span class="distance">📍 ${q.distance} from Octant Douro</span>
+      </div>
+      <div class="card-body">
+        <h3>${q.name}</h3>
+        <p class="location">${q.location}, Douro Valley</p>
+        <div class="meta">
+          ${q.types.map(t => `<span class="tag">${t === 'food' ? '🍽️ Food Pairing' : t === 'tour' ? '🚶 Tour' : t === 'experience' ? '🎯 Experience' : '🍷 Tasting'}</span>`).join('')}
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:8px">
+          <div>
+            <p class="price">${q.price}</p>
+            <p class="duration">⏱ ${q.duration}</p>
+          </div>
+        </div>
+        <p class="desc">${q.desc}</p>
+        <p class="includes"><strong>What's included:</strong> ${q.includes}</p>
+        <p class="includes"><strong>How to book:</strong> ${q.bookHow}</p>
+        <div class="card-actions">
+          <a href="${q.booking}" target="_blank" class="btn-book">Book Now →</a>
+          <button class="btn-vote ${votes ? 'voted' : ''}" data-idx="${i}" onclick="toggleVote(${i}, this)">
+            ${votes ? '❤️' : '🤍'} Vote${voteCount > 0 ? ' (' + voteCount + ')' : ''}
+          </button>
+        </div>
+      </div>
+    `;
+    container.appendChild(card);
+  });
+}
+
+function toggleVote(idx, btn) {
+  const key = 'vote_' + idx;
+  const countKey = 'votecount_' + idx;
+  if (localStorage.getItem(key)) {
+    localStorage.removeItem(key);
+    const c = Math.max(0, parseInt(localStorage.getItem(countKey) || '1') - 1);
+    localStorage.setItem(countKey, c);
+    btn.classList.remove('voted');
+    btn.innerHTML = `🤍 Vote${c > 0 ? ' (' + c + ')' : ''}`;
+  } else {
+    localStorage.setItem(key, '1');
+    const c = parseInt(localStorage.getItem(countKey) || '0') + 1;
+    localStorage.setItem(countKey, c);
+    btn.classList.add('voted');
+    btn.innerHTML = `❤️ Vote (${c})`;
+  }
+}
+
+// Filter logic
+let currentFilter = 'all';
+let currentPrice = null;
+let currentDist = null;
+
+document.getElementById('filters').addEventListener('click', e => {
+  if (!e.target.classList.contains('filter-btn')) return;
+  
+  if (e.target.dataset.filter) {
+    document.querySelectorAll('[data-filter]').forEach(b => b.classList.remove('active'));
+    e.target.classList.add('active');
+    currentFilter = e.target.dataset.filter;
+  }
+  if (e.target.dataset.price) {
+    if (e.target.classList.contains('active')) {
+      e.target.classList.remove('active');
+      currentPrice = null;
+    } else {
+      document.querySelectorAll('[data-price]').forEach(b => b.classList.remove('active'));
+      e.target.classList.add('active');
+      currentPrice = e.target.dataset.price;
+    }
+  }
+  if (e.target.dataset.dist) {
+    if (e.target.classList.contains('active')) {
+      e.target.classList.remove('active');
+      currentDist = null;
+    } else {
+      document.querySelectorAll('[data-dist]').forEach(b => b.classList.remove('active'));
+      e.target.classList.add('active');
+      currentDist = e.target.dataset.dist;
+    }
+  }
+  
+  renderCards(currentFilter, currentPrice, currentDist);
+});
+
+// Initial render
+renderCards('all', null, null);
+</script>
+
+</body>
+</html>
