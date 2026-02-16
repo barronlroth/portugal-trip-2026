@@ -3,510 +3,2576 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Douro Valley Vineyards & Tastings | Iberia 2026</title>
+  <title>Douro Valley Adventure Planner | May 19-22, 2026</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
   <style>
     :root {
-      --navy: #1a1a2e;
-      --gold: #d4a853;
-      --cream: #faf8f5;
-      --terracotta: #c05621;
+      --burgundy: #4a1a2c;
+      --burgundy-deep: #2d1018;
+      --gold: #c9a959;
+      --gold-light: #e8d5a3;
+      --cream: #faf6ef;
+      --cream-dark: #f0e8d9;
+      --forest: #1a2e1a;
+      --forest-light: #2d4a2d;
+      --charcoal: #1a1715;
+      --warm-black: #0f0d0c;
+      --text-muted: rgba(255,255,255,0.6);
+      --text-soft: rgba(255,255,255,0.8);
+      --card-bg: rgba(255,255,255,0.04);
+      --card-border: rgba(255,255,255,0.08);
+      --glass: rgba(26, 23, 21, 0.85);
+      --glass-border: rgba(255,255,255,0.1);
     }
-    * { margin:0; padding:0; box-sizing:border-box; }
-    body { font-family:'Inter',sans-serif; background:var(--navy); color:#fff; min-height:100vh; }
-    h1,h2,h3,h4 { font-family:'Playfair Display',serif; }
-    a { color:var(--gold); text-decoration:none; }
-    a:hover { text-decoration:underline; }
 
-    .container { max-width:1200px; margin:0 auto; padding:0 24px; }
-
-    /* Header */
-    .hero { text-align:center; padding:60px 24px 40px; background:linear-gradient(180deg,rgba(26,26,46,.95),rgba(26,26,46,.8)),url('https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?auto=format&fit=crop&w=2000&q=80') center/cover; }
-    .hero .back { display:inline-flex; align-items:center; gap:6px; font-size:14px; color:var(--gold); margin-bottom:24px; }
-    .hero h1 { font-size:clamp(2rem,5vw,3.5rem); margin-bottom:8px; }
-    .hero .sub { color:rgba(255,255,255,.7); font-size:15px; max-width:600px; margin:0 auto 24px; line-height:1.6; }
-    .hero .dates { color:var(--gold); font-size:13px; letter-spacing:.3em; text-transform:uppercase; margin-bottom:12px; }
-    .diamond { color:var(--gold); }
-
-    /* Transport Section */
-    .transport { background:rgba(255,255,255,.05); border-radius:16px; padding:24px; margin:32px auto; max-width:900px; }
-    .transport h2 { font-size:1.4rem; margin-bottom:16px; text-align:center; }
-    .transport-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:16px; }
-    .transport-card { background:rgba(255,255,255,.08); border-radius:12px; padding:16px; }
-    .transport-card h4 { font-size:15px; margin-bottom:6px; color:var(--gold); }
-    .transport-card p { font-size:13px; color:rgba(255,255,255,.7); line-height:1.5; }
-
-    /* Filters */
-    .filters { display:flex; flex-wrap:wrap; gap:8px; justify-content:center; padding:24px 0; position:sticky; top:0; z-index:10; background:var(--navy); border-bottom:1px solid rgba(255,255,255,.1); }
-    .filter-btn { background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.15); color:#fff; padding:8px 16px; border-radius:999px; font-size:13px; cursor:pointer; transition:.2s; font-family:'Inter',sans-serif; }
-    .filter-btn:hover, .filter-btn.active { background:var(--gold); color:var(--navy); border-color:var(--gold); font-weight:600; }
-    .filter-group { display:flex; align-items:center; gap:6px; flex-wrap:wrap; }
-    .filter-label { font-size:11px; text-transform:uppercase; letter-spacing:.15em; color:rgba(255,255,255,.5); margin-right:4px; }
-
-    /* Cards Grid */
-    .cards { display:grid; grid-template-columns:repeat(auto-fill,minmax(340px,1fr)); gap:24px; padding:32px 0 64px; }
-    .card { background:rgba(255,255,255,.06); border-radius:16px; overflow:hidden; border:1px solid rgba(255,255,255,.08); transition:transform .2s, box-shadow .2s; }
-    .card:hover { transform:translateY(-4px); box-shadow:0 12px 40px rgba(0,0,0,.3); }
-    .card-img { height:180px; background-size:cover; background-position:center; position:relative; }
-    .card-img .badge { position:absolute; top:12px; right:12px; background:var(--gold); color:var(--navy); font-size:11px; font-weight:700; padding:4px 10px; border-radius:999px; }
-    .card-img .distance { position:absolute; bottom:12px; left:12px; background:rgba(0,0,0,.6); backdrop-filter:blur(4px); color:#fff; font-size:11px; padding:4px 10px; border-radius:999px; }
-    .card-body { padding:20px; }
-    .card-body h3 { font-size:1.15rem; margin-bottom:4px; }
-    .card-body .location { font-size:12px; color:rgba(255,255,255,.5); margin-bottom:12px; }
-    .card-body .meta { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:12px; }
-    .card-body .tag { background:rgba(255,255,255,.08); padding:3px 10px; border-radius:999px; font-size:11px; color:rgba(255,255,255,.7); }
-    .card-body .desc { font-size:13px; color:rgba(255,255,255,.65); line-height:1.6; margin-bottom:16px; }
-    .card-body .includes { font-size:12px; color:rgba(255,255,255,.5); margin-bottom:16px; line-height:1.6; }
-    .card-body .includes strong { color:rgba(255,255,255,.8); }
-    .card-actions { display:flex; gap:8px; align-items:center; }
-    .btn-book { background:var(--gold); color:var(--navy); padding:8px 20px; border-radius:999px; font-size:13px; font-weight:600; border:none; cursor:pointer; font-family:'Inter',sans-serif; transition:.2s; }
-    .btn-book:hover { filter:brightness(1.1); transform:scale(1.02); text-decoration:none; }
-    .btn-vote { background:rgba(255,255,255,.1); color:#fff; padding:8px 16px; border-radius:999px; font-size:13px; font-weight:500; border:1px solid rgba(255,255,255,.2); cursor:pointer; font-family:'Inter',sans-serif; transition:.2s; display:flex; align-items:center; gap:4px; }
-    .btn-vote:hover { background:rgba(255,255,255,.2); }
-    .btn-vote.voted { background:var(--terracotta); border-color:var(--terracotta); }
-    .price { font-size:1.1rem; font-weight:700; color:var(--gold); margin-bottom:2px; }
-    .duration { font-size:12px; color:rgba(255,255,255,.5); }
-
-    .card.hidden { display:none; }
-
-    /* Footer */
-    .footer { text-align:center; padding:40px 24px; border-top:1px solid rgba(255,255,255,.1); color:rgba(255,255,255,.4); font-size:13px; }
-
-    @media(max-width:600px) {
-      .cards { grid-template-columns:1fr; }
-      .filters { padding:16px 12px; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    html { scroll-behavior: smooth; }
+    
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--warm-black);
+      color: #fff;
+      line-height: 1.6;
+      overflow-x: hidden;
     }
+
+    h1, h2, h3, h4, h5 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 600;
+      line-height: 1.2;
+    }
+
+    a { color: var(--gold); text-decoration: none; transition: color 0.2s; }
+    a:hover { color: var(--gold-light); }
+
+    .container { max-width: 1400px; margin: 0 auto; padding: 0 24px; }
+
+    /* Animations */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes slideDown {
+      from { transform: translateY(-100%); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+    @keyframes shimmer {
+      0% { background-position: -200% 0; }
+      100% { background-position: 200% 0; }
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    .reveal { opacity: 0; transform: translateY(40px); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+
+    /* ==================== HERO ==================== */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      padding: 60px 24px;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background: 
+        linear-gradient(180deg, rgba(15,13,12,0.3) 0%, rgba(15,13,12,0.6) 50%, var(--warm-black) 100%),
+        url('https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?auto=format&fit=crop&w=2000&q=80');
+      background-size: cover;
+      background-position: center;
+      transform: scale(1.1);
+      animation: fadeIn 1.5s ease-out;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at center, transparent 0%, var(--warm-black) 80%);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 900px;
+    }
+
+    .hero-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      color: var(--gold);
+      margin-bottom: 40px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      opacity: 0;
+      animation: fadeIn 1s 0.5s forwards;
+    }
+
+    .hero-dates {
+      font-size: 14px;
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 24px;
+      opacity: 0;
+      animation: fadeInUp 1s 0.3s forwards;
+    }
+
+    .hero-title {
+      font-size: clamp(3rem, 10vw, 6rem);
+      font-weight: 400;
+      margin-bottom: 16px;
+      opacity: 0;
+      animation: fadeInUp 1s 0.5s forwards;
+      letter-spacing: -0.02em;
+    }
+
+    .hero-title span {
+      color: var(--gold);
+      font-style: italic;
+    }
+
+    .hero-subtitle {
+      font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+      color: var(--text-soft);
+      max-width: 650px;
+      margin: 0 auto 20px;
+      font-weight: 400;
+      opacity: 0;
+      animation: fadeInUp 1s 0.7s forwards;
+    }
+
+    .hero-location {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-bottom: 40px;
+      opacity: 0;
+      animation: fadeInUp 1s 0.9s forwards;
+    }
+
+    .hero-location span { color: var(--gold); }
+
+    .hero-cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      justify-content: center;
+      opacity: 0;
+      animation: fadeInUp 1s 1.1s forwards;
+    }
+
+    .btn-primary {
+      background: var(--gold);
+      color: var(--warm-black);
+      padding: 16px 36px;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 14px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      transition: all 0.3s;
+      border: none;
+      cursor: pointer;
+      font-family: 'DM Sans', sans-serif;
+    }
+
+    .btn-primary:hover {
+      background: var(--gold-light);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 40px rgba(201, 169, 89, 0.3);
+      color: var(--warm-black);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: #fff;
+      padding: 16px 36px;
+      border-radius: 999px;
+      font-weight: 500;
+      font-size: 14px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      border: 1px solid rgba(255,255,255,0.3);
+      transition: all 0.3s;
+      cursor: pointer;
+      font-family: 'DM Sans', sans-serif;
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+
+    .scroll-indicator {
+      position: absolute;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      opacity: 0;
+      animation: fadeIn 1s 1.5s forwards, float 2s 2s infinite ease-in-out;
+    }
+
+    .scroll-indicator span {
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    .scroll-line {
+      width: 1px;
+      height: 60px;
+      background: linear-gradient(to bottom, var(--gold), transparent);
+    }
+
+    /* ==================== ALFRED SECTION ==================== */
+    .alfred-section {
+      padding: 120px 24px;
+      background: linear-gradient(180deg, var(--warm-black) 0%, var(--burgundy-deep) 50%, var(--warm-black) 100%);
+      position: relative;
+    }
+
+    .alfred-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 200px;
+      background: linear-gradient(to bottom, var(--warm-black), transparent);
+    }
+
+    .alfred-card {
+      max-width: 800px;
+      margin: 0 auto;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 24px;
+      padding: 48px;
+      position: relative;
+      backdrop-filter: blur(10px);
+    }
+
+    .alfred-emoji {
+      font-size: 4rem;
+      display: block;
+      margin-bottom: 24px;
+    }
+
+    .alfred-title {
+      font-size: 2.5rem;
+      margin-bottom: 8px;
+      color: #fff;
+    }
+
+    .alfred-subtitle {
+      font-size: 1rem;
+      color: var(--gold);
+      margin-bottom: 24px;
+      font-style: italic;
+    }
+
+    .alfred-text {
+      font-size: 1.1rem;
+      color: var(--text-soft);
+      line-height: 1.8;
+      font-family: 'Cormorant Garamond', serif;
+    }
+
+    .alfred-signature {
+      margin-top: 24px;
+      font-style: italic;
+      color: var(--gold);
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+    }
+
+    /* ==================== CATEGORY TABS ==================== */
+    .categories-section {
+      padding: 80px 24px 40px;
+      background: var(--warm-black);
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .section-label {
+      font-size: 12px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px;
+      display: block;
+    }
+
+    .section-title {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 400;
+      color: #fff;
+    }
+
+    .category-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .category-tab {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      color: var(--text-soft);
+      padding: 14px 28px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s;
+      font-family: 'DM Sans', sans-serif;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .category-tab:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+      transform: translateY(-2px);
+    }
+
+    .category-tab.active {
+      background: var(--gold);
+      border-color: var(--gold);
+      color: var(--warm-black);
+      font-weight: 600;
+    }
+
+    .category-tab .emoji {
+      font-size: 1.2em;
+    }
+
+    /* ==================== STICKY FILTER BAR ==================== */
+    .filter-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: var(--glass);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--glass-border);
+      padding: 16px 24px;
+      transform: translateY(-100%);
+      opacity: 0;
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .filter-bar.visible {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    .filter-bar-inner {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .filter-bar-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .filter-bar-logo span { color: var(--gold); }
+
+    .filter-controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .filter-group {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .filter-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+    }
+
+    .filter-select {
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.15);
+      color: #fff;
+      padding: 8px 16px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-family: 'DM Sans', sans-serif;
+      cursor: pointer;
+      transition: all 0.2s;
+      appearance: none;
+      padding-right: 32px;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='white' viewBox='0 0 16 16'%3E%3Cpath d='M8 11L3 6h10l-5 5z'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 12px center;
+    }
+
+    .filter-select:hover, .filter-select:focus {
+      border-color: var(--gold);
+      outline: none;
+    }
+
+    .filter-btn {
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.15);
+      color: #fff;
+      padding: 8px 16px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-family: 'DM Sans', sans-serif;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .filter-btn:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+
+    .filter-btn.active {
+      background: var(--gold);
+      border-color: var(--gold);
+      color: var(--warm-black);
+    }
+
+    .filter-count {
+      background: var(--gold);
+      color: var(--warm-black);
+      font-size: 11px;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 999px;
+      margin-left: 4px;
+    }
+
+    .clear-filters {
+      background: transparent;
+      border: none;
+      color: var(--gold);
+      font-size: 13px;
+      cursor: pointer;
+      font-family: 'DM Sans', sans-serif;
+      padding: 8px;
+      transition: opacity 0.2s;
+    }
+
+    .clear-filters:hover { opacity: 0.8; }
+
+    /* ==================== ACTIVITIES GRID ==================== */
+    .activities-section {
+      padding: 40px 24px 120px;
+      background: var(--warm-black);
+    }
+
+    .activities-count {
+      text-align: center;
+      margin-bottom: 40px;
+      color: var(--text-muted);
+      font-size: 14px;
+    }
+
+    .activities-count strong { color: var(--gold); }
+
+    .activities-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+      gap: 32px;
+    }
+
+    @media (max-width: 440px) {
+      .activities-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ==================== ACTIVITY CARD ==================== */
+    .activity-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 20px;
+      overflow: hidden;
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+    }
+
+    .activity-card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(201, 169, 89, 0.3);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+    }
+
+    .card-image {
+      height: 220px;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+
+    .card-image::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, var(--warm-black) 0%, transparent 60%);
+    }
+
+    .card-badges {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      right: 16px;
+      display: flex;
+      justify-content: space-between;
+      z-index: 2;
+    }
+
+    .badge {
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .badge-hidden-gem {
+      background: linear-gradient(135deg, var(--forest-light), var(--forest));
+      color: #fff;
+    }
+
+    .badge-top-pick {
+      background: linear-gradient(135deg, var(--gold), #a88734);
+      color: var(--warm-black);
+    }
+
+    .badge-distance {
+      background: rgba(0,0,0,0.6);
+      backdrop-filter: blur(8px);
+      color: #fff;
+      font-weight: 500;
+    }
+
+    .card-rating {
+      position: absolute;
+      bottom: 16px;
+      left: 16px;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(0,0,0,0.6);
+      backdrop-filter: blur(8px);
+      padding: 8px 14px;
+      border-radius: 999px;
+    }
+
+    .rating-stars {
+      color: var(--gold);
+      font-size: 14px;
+    }
+
+    .rating-text {
+      font-size: 12px;
+      color: #fff;
+    }
+
+    .rating-count {
+      color: var(--text-muted);
+      font-size: 11px;
+    }
+
+    .card-body {
+      padding: 24px;
+    }
+
+    .card-category {
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 8px;
+    }
+
+    .card-title {
+      font-size: 1.5rem;
+      font-weight: 500;
+      margin-bottom: 6px;
+      color: #fff;
+    }
+
+    .card-location {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .card-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .meta-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      color: var(--text-soft);
+    }
+
+    .meta-icon {
+      width: 16px;
+      height: 16px;
+      opacity: 0.7;
+    }
+
+    .card-desc {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: 16px;
+    }
+
+    /* Traveler Quote */
+    .traveler-quote {
+      background: rgba(201, 169, 89, 0.08);
+      border-left: 3px solid var(--gold);
+      padding: 16px;
+      border-radius: 0 12px 12px 0;
+      margin-bottom: 16px;
+    }
+
+    .quote-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 15px;
+      font-style: italic;
+      color: var(--text-soft);
+      line-height: 1.6;
+      margin-bottom: 8px;
+    }
+
+    .quote-source {
+      font-size: 11px;
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    /* Pro Tips */
+    .pro-tips {
+      background: rgba(45, 74, 45, 0.15);
+      border-radius: 12px;
+      padding: 14px 16px;
+      margin-bottom: 16px;
+    }
+
+    .pro-tips-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--forest-light);
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .pro-tips-text {
+      font-size: 13px;
+      color: var(--text-soft);
+      line-height: 1.5;
+    }
+
+    /* Tags */
+    .card-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+
+    .tag {
+      background: rgba(255,255,255,0.06);
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    .tag-price {
+      background: rgba(201, 169, 89, 0.15);
+      color: var(--gold);
+    }
+
+    /* Card Actions */
+    .card-actions {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      padding-top: 16px;
+      border-top: 1px solid var(--card-border);
+    }
+
+    .btn-book {
+      flex: 1;
+      background: var(--gold);
+      color: var(--warm-black);
+      padding: 14px 24px;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 13px;
+      text-align: center;
+      transition: all 0.3s;
+      border: none;
+      cursor: pointer;
+      font-family: 'DM Sans', sans-serif;
+    }
+
+    .btn-book:hover {
+      background: var(--gold-light);
+      transform: translateY(-2px);
+      color: var(--warm-black);
+    }
+
+    .btn-vote {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      color: #fff;
+      padding: 14px 20px;
+      border-radius: 999px;
+      font-size: 14px;
+      cursor: pointer;
+      transition: all 0.3s;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-family: 'DM Sans', sans-serif;
+    }
+
+    .btn-vote:hover {
+      border-color: #e25555;
+      background: rgba(226, 85, 85, 0.1);
+    }
+
+    .btn-vote.voted {
+      background: linear-gradient(135deg, #c53030, #9b2c2c);
+      border-color: #c53030;
+    }
+
+    .vote-count {
+      font-weight: 600;
+      font-size: 13px;
+    }
+
+    /* ==================== DAY PLANNER ==================== */
+    .day-planner-section {
+      padding: 120px 24px;
+      background: linear-gradient(180deg, var(--warm-black) 0%, var(--burgundy-deep) 50%, var(--warm-black) 100%);
+    }
+
+    .day-planner-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 48px;
+    }
+
+    @media (max-width: 900px) {
+      .day-planner-grid { grid-template-columns: 1fr; }
+    }
+
+    .day-column {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 20px;
+      padding: 24px;
+      min-height: 400px;
+    }
+
+    .day-header {
+      text-align: center;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--card-border);
+      margin-bottom: 20px;
+    }
+
+    .day-date {
+      font-size: 12px;
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      margin-bottom: 4px;
+    }
+
+    .day-title {
+      font-size: 1.5rem;
+      color: #fff;
+    }
+
+    .day-slots {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .day-slot {
+      background: rgba(255,255,255,0.03);
+      border: 2px dashed rgba(255,255,255,0.1);
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 13px;
+      transition: all 0.3s;
+      cursor: pointer;
+      min-height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .day-slot:hover {
+      border-color: var(--gold);
+      background: rgba(201, 169, 89, 0.05);
+    }
+
+    .day-slot.filled {
+      background: rgba(201, 169, 89, 0.1);
+      border: 1px solid rgba(201, 169, 89, 0.3);
+      text-align: left;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 8px;
+    }
+
+    .slot-activity-name {
+      font-weight: 600;
+      color: #fff;
+      font-size: 14px;
+    }
+
+    .slot-activity-time {
+      font-size: 12px;
+      color: var(--gold);
+    }
+
+    .slot-remove {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      background: rgba(255,255,255,0.1);
+      border: none;
+      color: #fff;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 14px;
+      transition: all 0.2s;
+    }
+
+    .slot-remove:hover {
+      background: #c53030;
+    }
+
+    .day-drive-time {
+      background: rgba(45, 74, 45, 0.2);
+      padding: 10px 14px;
+      border-radius: 8px;
+      font-size: 12px;
+      color: var(--forest-light);
+      text-align: center;
+      margin-top: 8px;
+    }
+
+    .planner-instructions {
+      text-align: center;
+      margin-top: 32px;
+      padding: 24px;
+      background: rgba(255,255,255,0.03);
+      border-radius: 16px;
+      color: var(--text-muted);
+      font-size: 14px;
+    }
+
+    .planner-instructions strong { color: var(--gold); }
+
+    /* ==================== INSIDER TIPS ==================== */
+    .insider-section {
+      padding: 120px 24px;
+      background: var(--warm-black);
+    }
+
+    .tips-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 24px;
+      margin-top: 48px;
+    }
+
+    .tip-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 20px;
+      padding: 28px;
+      transition: all 0.3s;
+    }
+
+    .tip-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(201, 169, 89, 0.3);
+    }
+
+    .tip-icon {
+      font-size: 2rem;
+      margin-bottom: 16px;
+    }
+
+    .tip-title {
+      font-size: 1.25rem;
+      color: #fff;
+      margin-bottom: 12px;
+    }
+
+    .tip-text {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: 16px;
+    }
+
+    .tip-quote {
+      background: rgba(201, 169, 89, 0.08);
+      padding: 14px;
+      border-radius: 10px;
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 14px;
+      color: var(--text-soft);
+      line-height: 1.6;
+    }
+
+    .tip-quote-source {
+      font-size: 11px;
+      color: var(--gold);
+      margin-top: 8px;
+      font-style: normal;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    /* ==================== GROUP VOTES LEADERBOARD ==================== */
+    .votes-section {
+      padding: 120px 24px;
+      background: linear-gradient(180deg, var(--warm-black) 0%, var(--forest) 100%);
+    }
+
+    .leaderboard {
+      max-width: 700px;
+      margin: 48px auto 0;
+    }
+
+    .leaderboard-item {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 20px 24px;
+      margin-bottom: 12px;
+      transition: all 0.3s;
+    }
+
+    .leaderboard-item:hover {
+      transform: translateX(8px);
+      border-color: var(--gold);
+    }
+
+    .leaderboard-rank {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--gold);
+      width: 50px;
+      text-align: center;
+    }
+
+    .leaderboard-rank.gold { color: #ffd700; }
+    .leaderboard-rank.silver { color: #c0c0c0; }
+    .leaderboard-rank.bronze { color: #cd7f32; }
+
+    .leaderboard-info {
+      flex: 1;
+    }
+
+    .leaderboard-name {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+
+    .leaderboard-category {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .leaderboard-votes {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 1.2rem;
+      color: #fff;
+    }
+
+    .leaderboard-votes span {
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+
+    .no-votes-message {
+      text-align: center;
+      padding: 60px 24px;
+      color: var(--text-muted);
+    }
+
+    .no-votes-message h3 {
+      color: #fff;
+      margin-bottom: 12px;
+    }
+
+    /* ==================== FOOTER ==================== */
+    .footer {
+      padding: 60px 24px;
+      background: var(--warm-black);
+      border-top: 1px solid var(--card-border);
+      text-align: center;
+    }
+
+    .footer-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem;
+      color: #fff;
+      margin-bottom: 16px;
+    }
+
+    .footer-logo span { color: var(--gold); }
+
+    .footer-text {
+      color: var(--text-muted);
+      font-size: 13px;
+      max-width: 500px;
+      margin: 0 auto 24px;
+      line-height: 1.7;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      color: var(--text-muted);
+      font-size: 13px;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: var(--gold); }
+
+    /* ==================== RESPONSIVE ==================== */
+    @media (max-width: 768px) {
+      .hero { padding: 80px 20px; }
+      .hero-title { font-size: 2.5rem; }
+      .hero-subtitle { font-size: 1rem; }
+      
+      .alfred-card { padding: 32px 24px; }
+      .alfred-title { font-size: 1.8rem; }
+      
+      .category-tabs { gap: 8px; }
+      .category-tab { padding: 10px 18px; font-size: 13px; }
+      
+      .filter-bar-inner { flex-direction: column; gap: 12px; }
+      .filter-controls { justify-content: center; }
+      
+      .activities-grid { grid-template-columns: 1fr; gap: 24px; }
+      
+      .tips-grid { grid-template-columns: 1fr; }
+      
+      .day-planner-grid { grid-template-columns: 1fr; }
+    }
+
+    /* Hide scrollbar but keep functionality */
+    .category-tabs::-webkit-scrollbar { display: none; }
+    .category-tabs { -ms-overflow-style: none; scrollbar-width: none; }
   </style>
 </head>
 <body>
 
-<div class="hero">
-  <a href="/portugal-trip-2026/" class="back">← Back to Itinerary</a>
-  <p class="dates">May 19–22, 2026</p>
-  <h1>Douro Valley <span class="diamond">◆</span> Vineyards & Tastings</h1>
-  <p class="sub">Every quinta, tasting room, and wine experience near Octant Douro — curated for our group. Vote for your favorites!</p>
+<!-- ==================== HERO ==================== -->
+<section class="hero" id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  
+  <div class="hero-content">
+    <a href="/portugal-trip-2026/" class="hero-back">← Back to Itinerary</a>
+    <p class="hero-dates">May 19–22, 2026</p>
+    <h1 class="hero-title">Your Douro Valley <span>Adventure</span></h1>
+    <p class="hero-subtitle">Three days in UNESCO's oldest wine region. Six friends. Countless bottles. One unforgettable journey through terraced vineyards and centuries of winemaking tradition.</p>
+    <div class="hero-location">
+      <span>🏨</span> Home Base: Octant Douro, Castelo de Paiva
+      <span>•</span>
+      Wine country is ~1hr east
+    </div>
+    <div class="hero-cta">
+      <button class="btn-primary" onclick="document.getElementById('activities').scrollIntoView({behavior: 'smooth'})">Explore Activities</button>
+      <button class="btn-secondary" onclick="document.getElementById('day-planner').scrollIntoView({behavior: 'smooth'})">Build Your Days</button>
+    </div>
+  </div>
+  
+  <div class="scroll-indicator">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- ==================== ALFRED SECTION ==================== -->
+<section class="alfred-section">
+  <div class="container">
+    <div class="alfred-card reveal">
+      <span class="alfred-emoji">🦉</span>
+      <h2 class="alfred-title">Meet Alfred</h2>
+      <p class="alfred-subtitle">Your AI Concierge for the Douro</p>
+      <p class="alfred-text">
+        Good evening. I'm Alfred, Barron's AI butler. Think Jarvis, but with considerably better taste in wine and a healthy disdain for tourist traps.
+        <br><br>
+        I've spent countless cycles crawling every corner of TripAdvisor, Reddit, and obscure Portuguese food blogs to curate this guide. Every rating, quote, and "pro tip" below comes from real travelers who've wandered these terraced hills before you.
+        <br><br>
+        The result? A collection of 35+ vineyards, restaurants, and experiences — from world-famous quintas to the rustic taverns that only appear in deep Reddit threads. No sponsored nonsense. Just the genuine article.
+        <br><br>
+        Vote for your favorites, build your days, and I'll ensure your group doesn't end up at a tourist trap with mediocre port and a €50 tasting fee. That would be rather embarrassing for all of us.
+      </p>
+      <p class="alfred-signature">— Alfred 🦉</p>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== CATEGORY TABS ==================== -->
+<section class="categories-section" id="categories">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-label">Curated by Category</span>
+      <h2 class="section-title">Choose Your Adventure</h2>
+    </div>
+    
+    <div class="category-tabs reveal reveal-delay-1" id="categoryTabs">
+      <button class="category-tab active" data-category="all">
+        <span class="emoji">✨</span> All
+      </button>
+      <button class="category-tab" data-category="vineyard">
+        <span class="emoji">🍷</span> Vineyards & Tastings
+      </button>
+      <button class="category-tab" data-category="restaurant">
+        <span class="emoji">🍽️</span> Restaurants
+      </button>
+      <button class="category-tab" data-category="experience">
+        <span class="emoji">⛵</span> River & Water
+      </button>
+      <button class="category-tab" data-category="viewpoint">
+        <span class="emoji">🥾</span> Hikes & Views
+      </button>
+      <button class="category-tab" data-category="cultural">
+        <span class="emoji">🎭</span> Culture & Villages
+      </button>
+      <button class="category-tab" data-category="adventure">
+        <span class="emoji">🚀</span> Adventure
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== STICKY FILTER BAR ==================== -->
+<div class="filter-bar" id="filterBar">
+  <div class="filter-bar-inner">
+    <div class="filter-bar-logo">
+      <span>◆</span> Douro Valley
+    </div>
+    
+    <div class="filter-controls">
+      <div class="filter-group">
+        <select class="filter-select" id="filterCategory">
+          <option value="all">All Categories</option>
+          <option value="vineyard">🍷 Vineyards</option>
+          <option value="restaurant">🍽️ Restaurants</option>
+          <option value="experience">⛵ River & Water</option>
+          <option value="viewpoint">🥾 Hikes & Views</option>
+          <option value="cultural">🎭 Culture</option>
+          <option value="adventure">🚀 Adventure</option>
+        </select>
+      </div>
+      
+      <div class="filter-group">
+        <select class="filter-select" id="filterPrice">
+          <option value="all">All Prices</option>
+          <option value="€">€ Budget</option>
+          <option value="€€">€€ Mid-range</option>
+          <option value="€€€">€€€ Splurge</option>
+        </select>
+      </div>
+      
+      <div class="filter-group">
+        <select class="filter-select" id="filterRating">
+          <option value="all">Any Rating</option>
+          <option value="4.5">4.5+ Stars</option>
+          <option value="4">4+ Stars</option>
+        </select>
+      </div>
+      
+      <button class="clear-filters" id="clearFilters">Clear All</button>
+    </div>
+  </div>
 </div>
 
-<div class="container">
+<!-- ==================== ACTIVITIES SECTION ==================== -->
+<section class="activities-section" id="activities">
+  <div class="container">
+    <p class="activities-count" id="activitiesCount">Showing <strong>0</strong> experiences</p>
+    <div class="activities-grid" id="activitiesGrid">
+      <!-- Cards will be rendered by JS -->
+    </div>
+  </div>
+</section>
 
-  <!-- Transport -->
-  <div class="transport">
-    <h2>🚗 Getting There</h2>
-    <div class="transport-grid">
-      <div class="transport-card">
-        <h4>🚗 Rental Car (Recommended)</h4>
-        <p>Porto Airport → Douro Valley is ~1.5 hours via the A4/IP4. Pick up at OPO, drop in Lisbon. The N222 road from Régua to Pinhão is one of the world's most scenic drives. Essential for quinta-hopping.</p>
+<!-- ==================== DAY PLANNER ==================== -->
+<section class="day-planner-section" id="day-planner">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-label">Plan Your Journey</span>
+      <h2 class="section-title">Build Your Days</h2>
+    </div>
+    
+    <div class="day-planner-grid reveal reveal-delay-1">
+      <div class="day-column" data-day="1">
+        <div class="day-header">
+          <p class="day-date">Monday, May 19</p>
+          <h3 class="day-title">Day 1</h3>
+        </div>
+        <div class="day-slots" id="day1Slots">
+          <div class="day-slot" data-slot="morning">+ Add Morning Activity</div>
+          <div class="day-slot" data-slot="afternoon">+ Add Afternoon Activity</div>
+          <div class="day-slot" data-slot="evening">+ Add Evening / Dinner</div>
+        </div>
       </div>
-      <div class="transport-card">
-        <h4>🚂 Train (Douro Line)</h4>
-        <p>Porto São Bento → Peso da Régua (€8–10, 2h) or Pinhão (€11, 2.5h). Scenic riverside route. Limited schedules — check <a href="https://www.cp.pt/passageiros/en" target="_blank">cp.pt</a>. Many quintas are walkable from Pinhão station.</p>
+      
+      <div class="day-column" data-day="2">
+        <div class="day-header">
+          <p class="day-date">Tuesday, May 20</p>
+          <h3 class="day-title">Day 2</h3>
+        </div>
+        <div class="day-slots" id="day2Slots">
+          <div class="day-slot" data-slot="morning">+ Add Morning Activity</div>
+          <div class="day-slot" data-slot="afternoon">+ Add Afternoon Activity</div>
+          <div class="day-slot" data-slot="evening">+ Add Evening / Dinner</div>
+        </div>
       </div>
-      <div class="transport-card">
-        <h4>🚢 River Cruise</h4>
-        <p>Day cruises from Porto to Régua/Pinhão (~€50–80pp) with lunch & tastings included. A relaxing way to arrive. Return by train. Book via <a href="https://www.dourovalley-tours.com/" target="_blank">dourovalley-tours.com</a>.</p>
+      
+      <div class="day-column" data-day="3">
+        <div class="day-header">
+          <p class="day-date">Wednesday, May 21</p>
+          <h3 class="day-title">Day 3</h3>
+        </div>
+        <div class="day-slots" id="day3Slots">
+          <div class="day-slot" data-slot="morning">+ Add Morning Activity</div>
+          <div class="day-slot" data-slot="afternoon">+ Add Afternoon Activity</div>
+          <div class="day-slot" data-slot="evening">+ Add Evening / Dinner</div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="planner-instructions reveal reveal-delay-2">
+      <strong>💡 How it works:</strong> Click the "Add to Day" button on any activity card, then select a time slot. Drive times between activities will be calculated automatically.
+    </div>
+  </div>
+</section>
+
+<!-- ==================== INSIDER TIPS ==================== -->
+<section class="insider-section" id="insider-tips">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-label">From the Community</span>
+      <h2 class="section-title">Insider Tips</h2>
+    </div>
+    
+    <div class="tips-grid reveal reveal-delay-1">
+      <div class="tip-card">
+        <div class="tip-icon">🚗</div>
+        <h3 class="tip-title">Hire a Driver/Guide</h3>
+        <p class="tip-text">With 6 people, hiring a private guide splits to a very reasonable cost per person — and solves the designated driver problem entirely.</p>
+        <div class="tip-quote">
+          "Miguel Leal won Wine Guide of the Year 2023/2024. He'll take you to places you'd never find on your own."
+          <div class="tip-quote-source">— r/wine</div>
+        </div>
+      </div>
+      
+      <div class="tip-card">
+        <div class="tip-icon">📅</div>
+        <h3 class="tip-title">Book Tastings Ahead</h3>
+        <p class="tip-text">Unlike Napa or Sonoma, most Douro quintas are by appointment only. Don't expect to just show up — plan and book 1-2 weeks ahead.</p>
+        <div class="tip-quote">
+          "Most winery tastings in Douro are BY APPOINTMENT ONLY — plan and book ahead. Many have tasting rooms in town for drop-ins."
+          <div class="tip-quote-source">— r/wine</div>
+        </div>
+      </div>
+      
+      <div class="tip-card">
+        <div class="tip-icon">🚂</div>
+        <h3 class="tip-title">Take the Train (One Way)</h3>
+        <p class="tip-text">The Douro Line from Porto to Pinhão is one of the world's most scenic train rides. Take it at least one direction for an unforgettable experience.</p>
+        <div class="tip-quote">
+          "The journey by train from Porto to Pinhão is one of the most beautiful train rides I have ever taken, anywhere in the world. Tracks right next to the Douro river."
+          <div class="tip-quote-source">— r/travel</div>
+        </div>
+      </div>
+      
+      <div class="tip-card">
+        <div class="tip-icon">⚠️</div>
+        <h3 class="tip-title">Quinta da Pacheca: Visit, Don't Eat</h3>
+        <p class="tip-text">The wine barrel hotel is iconic and the cellars are beautiful — but skip the restaurant. Food and service are disappointing according to multiple reports.</p>
+        <div class="tip-quote">
+          "Wine barrel hotel is incredible — wake up in the middle of the vineyard. BUT 'The food was a miss and the service was not great.' Visit for the winery tour only."
+          <div class="tip-quote-source">— Reddit Trip Report</div>
+        </div>
+      </div>
+      
+      <div class="tip-card">
+        <div class="tip-icon">🌟</div>
+        <h3 class="tip-title">DOC is THE Splurge Dinner</h3>
+        <p class="tip-text">Chef Rui Paula's DOC restaurant on the Douro river is the definitive fine dining experience in the valley. The sommelier's pairings are legendary.</p>
+        <div class="tip-quote">
+          "When I first came here, the Douro didn't have great gastronomic traditions. So I dared to diversify the culinary offerings." — Rui Paula
+          <div class="tip-quote-source">— DOC Restaurant</div>
+        </div>
+      </div>
+      
+      <div class="tip-card">
+        <div class="tip-icon">🍷</div>
+        <h3 class="tip-title">Explore Small Producers</h3>
+        <p class="tip-text">The big names are great, but the real magic is in the small family quintas. Quinta do Tedo, Quinta da Foz, and Quevedo offer wines you can't find anywhere else.</p>
+        <div class="tip-quote">
+          "There's something nice about small producers, and they have an enviable position in the river. The Reserva was worth bringing back."
+          <div class="tip-quote-source">— r/wine on Quinta do Tedo</div>
+        </div>
       </div>
     </div>
   </div>
+</section>
 
-  <!-- Filters -->
-  <div class="filters" id="filters">
-    <div class="filter-group">
-      <span class="filter-label">Type:</span>
-      <button class="filter-btn active" data-filter="all">All</button>
-      <button class="filter-btn" data-filter="tasting">Tasting</button>
-      <button class="filter-btn" data-filter="tour">Tour + Tasting</button>
-      <button class="filter-btn" data-filter="food">Food Pairing</button>
-      <button class="filter-btn" data-filter="experience">Experience</button>
+<!-- ==================== GROUP VOTES LEADERBOARD ==================== -->
+<section class="votes-section" id="votes">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-label">Group Favorites</span>
+      <h2 class="section-title">Top Voted Activities</h2>
     </div>
-    <div class="filter-group">
-      <span class="filter-label">Price:</span>
-      <button class="filter-btn" data-price="budget">Under €30</button>
-      <button class="filter-btn" data-price="mid">€30–75</button>
-      <button class="filter-btn" data-price="premium">€75+</button>
-    </div>
-    <div class="filter-group">
-      <span class="filter-label">Distance:</span>
-      <button class="filter-btn" data-dist="close">< 10 min</button>
-      <button class="filter-btn" data-dist="medium">10–20 min</button>
-      <button class="filter-btn" data-dist="far">20+ min</button>
+    
+    <div class="leaderboard reveal reveal-delay-1" id="leaderboard">
+      <!-- Rendered by JS -->
     </div>
   </div>
+</section>
 
-  <!-- Cards -->
-  <div class="cards" id="cards">
+<!-- ==================== FOOTER ==================== -->
+<footer class="footer">
+  <div class="footer-logo"><span>◆</span> Iberia 2026</div>
+  <p class="footer-text">Curated with love by Alfred 🦉 for Barron, Nina, Zach, Lauren & friends. Prices are approximate and may vary. Book ahead for May availability.</p>
+  <div class="footer-links">
+    <a href="/portugal-trip-2026/">Full Itinerary</a>
+    <a href="#hero">Back to Top</a>
   </div>
-
-</div>
-
-<div class="footer">
-  <p><span class="diamond">◆</span> Iberia 2026 — Douro Valley Guide</p>
-  <p style="margin-top:8px">Prices are approximate and may vary. Book ahead for May availability.</p>
-</div>
+</footer>
 
 <script>
-const QUINTAS = [
+// ==================== DATA ====================
+const ACTIVITIES = [
+  // VINEYARDS
   {
-    name: "Quinta do Bomfim",
-    location: "Pinhão",
-    distance: "15 min",
-    distCat: "medium",
-    price: "€30–90",
-    priceMin: 30,
-    types: ["tour","tasting"],
-    duration: "1–1.5h",
+    id: 1,
+    name: "Quinta S. Luiz (Kopke)",
+    category: "vineyard",
+    categoryLabel: "Vineyard & Tasting",
+    location: "Near Pinhão",
+    distance: "~1h15 drive",
+    distanceMinutes: 75,
+    priceRange: "€€",
+    priceText: "€15-40",
+    duration: "1.5-2 hours",
+    rating: 4.5,
+    reviewCount: "200+",
     image: "https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?auto=format&fit=crop&w=800&q=80",
-    desc: "Symington family estate producing legendary Dow's Ports. Stunning riverside terrace, historic 1896 lodge, and modern lagares. Global winner Best of Wine Tourism 2024.",
-    includes: "Classic Tasting (€30): 3 ports. Douro DOC (€50): 4 wines. Dow's (€55): LBV + 30yr Tawny + Vintage Port. Premium (€90): 40yr Tawny + vintage ports. Vineyard walks available. Picnics bookable 24h ahead.",
-    booking: "https://www.symington.com/visit/quinta-do-bomfim/3",
-    bookHow: "Online booking",
-    badge: "⭐ Top Pick"
+    description: "Oldest port wine house (est. 1638). Premium tawny vertical tastings and colheita ports. Intimate feel with small groups.",
+    quote: "By far the best visit we had — not just because of the wines. There weren't that many people so we managed to spend quite a lot of time with the guide. The Tawny 30 and Burmester 1985 were the standouts.",
+    quoteSource: "Reddit Trip Report",
+    proTip: "Book the premium tasting (tawny vertical + colheitas), not just the basic. Ask about the Burmester and Barros old ports.",
+    tags: ["Premium Tastings", "Historic"],
+    website: "https://kopke1638.com/pt/turismo/",
+    hiddenGem: false,
+    topPick: true
   },
   {
-    name: "Quinta Nova",
-    location: "Covas do Douro",
-    distance: "20 min",
-    distCat: "far",
-    price: "€20–60",
-    priceMin: 20,
-    types: ["tour","tasting","food"],
-    duration: "1–2h",
-    image: "https://images.unsplash.com/photo-1560179406-1c6c60e0dc76?auto=format&fit=crop&w=800&q=80",
-    desc: "Historic 1756 estate with breathtaking panoramic views, the only wine museum in the Douro, riverside chapel, and marked hiking trails. Relais & Châteaux property with acclaimed Terraçu's restaurant.",
-    includes: "Wine tastings from €20. Award-winning Mirabilis & Aeternus ranges. Wine museum visit. Restaurant lunch with valley views (€40–60pp). Hiking trails on property.",
-    booking: "https://www.quintanova.com/en/wine-tourism/wine-tasting/",
-    bookHow: "Email or phone: +351 254 730 430",
-    badge: "⭐ Top Pick"
-  },
-  {
-    name: "Quinta de la Rosa",
-    location: "Pinhão",
-    distance: "15 min",
-    distCat: "medium",
-    price: "€15–40",
-    priceMin: 15,
-    types: ["tour","tasting","food"],
-    duration: "1–1.5h",
-    image: "https://images.unsplash.com/photo-1516594915697-87eb3b1c14ea?auto=format&fit=crop&w=800&q=80",
-    desc: "Family-owned riverside estate since 1906, known for distinctive drier Port style and excellent DOC wines. Atmospheric tasting room in the port ageing cellar overlooking the Douro. Walkable from Pinhão (15–20 min along river).",
-    includes: "Tastings from €15 (basic) to €40 (Poeira premium). Cozinha da Clara restaurant (fine dining, terrace views). Tim's Terrace for casual burgers & pizza. Hotel with pool.",
-    booking: "https://www.quintadelarosa.com/",
-    bookHow: "Online or email: dpo@quintadelarosa.com",
-    badge: "⭐ Top Pick"
-  },
-  {
+    id: 2,
     name: "Quinta do Vallado",
+    category: "vineyard",
+    categoryLabel: "Vineyard & Tasting",
     location: "Peso da Régua",
-    distance: "25 min",
-    distCat: "far",
-    price: "€20–50",
-    priceMin: 20,
-    types: ["tour","tasting","food","experience"],
-    duration: "1.25h",
-    image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80",
-    desc: "Historic estate from 1716, one of the oldest in the Douro. Striking modern architecture by Álvaro Siza Vieira alongside traditional buildings. Beautiful gardens, pools, and organic viticulture. Wine hotel on-site.",
-    includes: "Guided tours daily in EN (11am, 2:30pm, 4:30pm) — 1h15. Private tours & custom tastings available. Blending workshops (2h, min 4 people). Wine lunches & dinners bookable.",
-    booking: "https://fareharbor.com/embeds/book/quinta-do-vallado/?full-items=yes&flow=990516&language=EN",
-    bookHow: "Online booking via FareHarbor",
-    badge: "⭐ Top Pick"
+    distance: "~1h drive",
+    distanceMinutes: 60,
+    priceRange: "€€",
+    priceText: "€15-30",
+    duration: "1-1.5 hours",
+    rating: 4.5,
+    reviewCount: "300+",
+    image: "https://images.unsplash.com/photo-1560179406-1c6c60e0dc76?auto=format&fit=crop&w=800&q=80",
+    description: "Historic winery since 1716 with stunning modern architecture by Álvaro Siza Vieira. Known for Field Blend and Touriga Nacional.",
+    quote: "Stayed at Quinta do Vallado and it was exceptional. The field blend was probably the best wine we had the entire trip.",
+    quoteSource: "r/wine",
+    proTip: "The guide's jokes can be awkward — go for the wines, not the comedy. Try the Reserva Branco and Field Blend specifically.",
+    tags: ["Wine Hotel", "Modern Architecture"],
+    website: "https://www.quintadovallado.com/",
+    hiddenGem: false,
+    topPick: true
   },
   {
-    name: "Quinta da Roêda (Croft)",
-    location: "Pinhão",
-    distance: "10 min",
-    distCat: "close",
-    price: "€20–50",
-    priceMin: 20,
-    types: ["tour","tasting","food","experience"],
-    duration: "1–2h",
-    image: "https://images.unsplash.com/photo-1567529692333-de9fd6772897?auto=format&fit=crop&w=800&q=80",
-    desc: "\"The jewel of the Douro\" — Croft's flagship estate with some of the region's oldest vine terraces. Taste the famous Croft Pink rosé port. Picnics on shaded vineyard terraces with world-class views. Accommodates groups up to 20.",
-    includes: "Guided vineyard tour + tasting. Picnic baskets (order in advance). BBQ & regional buffet options. Private dinners & events. Open every day including weekends.",
-    booking: "https://croftport.com/en/quinta-da-roeda-wine-tourism/",
-    bookHow: "Email/phone form on website. Tel: +351 932 640 072",
-    badge: "Group Friendly"
-  },
-  {
-    name: "Quinta das Carvalhas",
-    location: "Pinhão",
-    distance: "10 min",
-    distCat: "close",
-    price: "€15–45",
-    priceMin: 15,
-    types: ["tour","tasting","food"],
-    duration: "1–2h",
-    image: "https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?auto=format&fit=crop&w=800&q=80",
-    desc: "Iconic 360° panoramic views from the hilltop Casa Redonda. Owned by Portugal's oldest wine company (Real Companhia Velha, est. 1756). Walk-in tastings available — great for spontaneous visits!",
-    includes: "Vineyard walk + port tasting (~€15). Minibus sightseeing tour. Signature Tour with viticulturist Álvaro Martinho: 4 DOC wines + cheese/charcuterie + port (~€45). Walk-in tastings accepted.",
-    booking: "https://realcompanhiavelha.pt/pt/quintas/quinta-das-carvalhas",
-    bookHow: "Walk-in or book online",
-    badge: "Best Views"
-  },
-  {
-    name: "Quinta da Pacheca",
-    location: "Lamego",
-    distance: "20 min",
-    distCat: "far",
-    price: "€15–50",
-    priceMin: 15,
-    types: ["tour","tasting","experience"],
-    duration: "1–2h",
-    image: "https://images.unsplash.com/photo-1474722883778-792e7990302f?auto=format&fit=crop&w=800&q=80",
-    desc: "One of the first quintas to bottle under its own label. Famous worldwide for the unique Wine Barrel hotel rooms. Beautiful ageing cellar and outdoor terrace with sofas. Larger estate — expect more visitors.",
-    includes: "Tour of cellars + tasting from €15. Wine barrel accommodation experience. Grape stomp during harvest season. Outdoor terrace with valley views.",
-    booking: "https://quintadapacheca.com/",
-    bookHow: "Online booking on website"
-  },
-  {
-    name: "Quinta do Crasto",
-    location: "Sabrosa",
-    distance: "25 min",
-    distCat: "far",
-    price: "€15–70",
-    priceMin: 15,
-    types: ["tour","tasting","food"],
-    duration: "1.5–3h",
-    image: "https://images.unsplash.com/photo-1504279577054-acfeccf8fc52?auto=format&fit=crop&w=800&q=80",
-    desc: "Ancient estate with Roman origins and spectacular high vantage point. Member of the prestigious Douro Boys group. Exceptional single-vineyard wines from century-old vines. Winding road but incredible views.",
-    includes: "Tastings from €15–70 (5 wines typical). Optional lunches or dinners. Douro River boat trips. Farm store for purchases. Stunning old-vine vineyards.",
-    booking: "https://quintadocrasto.pt/",
-    bookHow: "Book via website or email"
-  },
-  {
-    name: "Quinta do Tedo",
-    location: "Folgosa (Armamar)",
-    distance: "15 min",
-    distCat: "medium",
-    price: "€15–35",
-    priceMin: 15,
-    types: ["tour","tasting"],
-    duration: "1–1.5h",
-    image: "https://images.unsplash.com/photo-1544947950-fa07a98d237f?auto=format&fit=crop&w=800&q=80",
-    desc: "Charming boutique winery at the confluence of Douro and Tedo rivers. First certified organic vineyard in the Douro. Franco-American-Portuguese ownership brings unique perspectives. Hand-harvested, some foot-crushed grapes.",
-    includes: "Personal guided tours in stunning ecological reserve. Educational, intimate tastings. Organic wine focus. Beautiful riverside setting.",
-    booking: "https://www.quintadotedo.com/",
-    bookHow: "Book via website or email"
-  },
-  {
-    name: "Quinta do Noval",
-    location: "São Cristóvão do Douro",
-    distance: "20 min",
-    distCat: "far",
-    price: "€30–100+",
-    priceMin: 30,
-    types: ["tour","tasting"],
-    duration: "1.5–2h",
-    image: "https://images.unsplash.com/photo-1566903451935-7bc1462dfc5d?auto=format&fit=crop&w=800&q=80",
-    desc: "Known worldwide for the iconic Noval Nacional — from ungrafted pre-phylloxera vines. Dating to 1715, these terraced vineyards are among the most photographed in the Douro. Exclusive and premium experience.",
-    includes: "Tours and tastings by appointment only. Premium port flights. Historic vineyard walk. One of the world's most prestigious port producers.",
-    booking: "https://www.quintadonoval.com/",
-    bookHow: "By appointment only — book well ahead",
-    badge: "Premium"
-  },
-  {
-    name: "Quinta do Seixo (Sandeman)",
-    location: "Valença do Douro",
-    distance: "15 min",
-    distCat: "medium",
-    price: "€15–40",
-    priceMin: 15,
-    types: ["tour","tasting"],
-    duration: "1–1.5h",
-    image: "https://images.unsplash.com/photo-1584916201218-f4242ceb4809?auto=format&fit=crop&w=800&q=80",
-    desc: "Sandeman's 100-hectare Douro estate with modern visitor center. Traditional architecture meets modern winemaking facilities. Detailed insights into port production methods.",
-    includes: "Guided tour + tasting from €15. Modern visitor center experience. Learn about Sandeman's port production. Shop on-site.",
-    booking: "https://www.sandeman.com/port-wine/visit/quinta-do-seixo-douro/",
-    bookHow: "Online booking"
-  },
-  {
-    name: "Quinta do Panascal (Fonseca)",
-    location: "Tavora Valley",
-    distance: "30 min",
-    distCat: "far",
-    price: "€10–25",
-    priceMin: 10,
-    types: ["tour","tasting"],
-    duration: "1h",
-    image: "https://images.unsplash.com/photo-1590073242678-70ee3fc28e8e?auto=format&fit=crop&w=800&q=80",
-    desc: "Fonseca's flagship vineyard and one of the first quintas to open for public visits (1992). Features an innovative self-guided audio tour through the vineyards — walk at your own pace.",
-    includes: "Self-guided audio vineyard tour. Port wine tasting. One of the most affordable visits in the region. Historic property with beautiful terraces.",
-    booking: "https://www.fonseca.pt/en/vineyards-and-douro/quinta-panascal",
-    bookHow: "Book online or walk-in"
-  },
-  {
-    name: "Quinta de São Luiz (Kopke)",
-    location: "Adorigo",
-    distance: "15 min",
-    distCat: "medium",
-    price: "€20–50",
-    priceMin: 20,
-    types: ["tour","tasting"],
-    duration: "1–1.5h",
+    id: 3,
+    name: "Quinta do Vale Meão",
+    category: "vineyard",
+    categoryLabel: "Vineyard & Tasting",
+    location: "Douro Superior",
+    distance: "~2h drive",
+    distanceMinutes: 120,
+    priceRange: "€€",
+    priceText: "€20-40",
+    duration: "1.5-2 hours",
+    rating: 4.5,
+    reviewCount: "100+",
     image: "https://images.unsplash.com/photo-1547595628-c61a29f496f0?auto=format&fit=crop&w=800&q=80",
-    desc: "Home to the oldest port wine brand in the world (established 1638). Known for producing premium tawny and vintage ports. Rich history spanning nearly 400 years.",
-    includes: "Guided tour of historic cellars. Tasting of premium tawny ports. Learn about Kopke's 4-century winemaking heritage.",
-    booking: "https://kopke1638.com/wine-tourism/",
-    bookHow: "Book via website"
+    description: "Premium dry reds in the quieter Douro Superior region. Less touristy, super friendly team. Some of the best dry reds in the Douro.",
+    quote: "The dry reds are amazing, the area being a bit further up the Douro is less busy, and the tasting is a great experience — super friendly team. Highly recommended.",
+    quoteSource: "Reddit",
+    proTip: "Book well in advance. Further east so combine with other Douro Superior stops. Less touristy = more authentic experience.",
+    tags: ["Dry Reds", "Off the Beaten Path"],
+    website: "https://www.quintadovalemeao.pt/",
+    hiddenGem: true,
+    topPick: false
   },
   {
+    id: 4,
+    name: "Quinta do Bomfim (Dow's)",
+    category: "vineyard",
+    categoryLabel: "Vineyard & Tasting",
+    location: "Pinhão",
+    distance: "~1h15 drive",
+    distanceMinutes: 75,
+    priceRange: "€€",
+    priceText: "€15-25",
+    duration: "1-1.5 hours",
+    rating: 4.6,
+    reviewCount: "774",
+    image: "https://images.unsplash.com/photo-1504279577054-acfeccf8fc52?auto=format&fit=crop&w=800&q=80",
+    description: "Symington family estate in Pinhão. Famous for Dow's Vintage Ports. Walking distance from Pinhão train station with stunning river views.",
+    quote: "An amazing location with an incredible and breathtaking view of the Rio Douro. The Quinta is so beautiful it's so nice just walking around.",
+    quoteSource: "TripAdvisor",
+    proTip: "You can just do a tasting without the full tour — not promoted on website but available. Ask at the tasting room.",
+    tags: ["Walkable from Station", "Historic"],
+    website: "https://www.symington.com/visit/quinta-do-bomfim/3",
+    hiddenGem: false,
+    topPick: true
+  },
+  {
+    id: 5,
+    name: "Quinta das Carvalhas",
+    category: "vineyard",
+    categoryLabel: "Vineyard & Tasting",
+    location: "Pinhão",
+    distance: "~1h15 drive",
+    distanceMinutes: 75,
+    priceRange: "€",
+    priceText: "€15",
+    duration: "1-1.5 hours",
+    rating: 4.0,
+    reviewCount: "237",
+    image: "https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?auto=format&fit=crop&w=800&q=80",
+    description: "Owned by Portugal's oldest wine company (since 1756). Extraordinary 360° panoramic views from Casa Redonda hilltop. Walk-in tastings accepted.",
+    quote: "The Vineyard Guided Tour & Tasting exceeded our expectations. Generous pours of 2 Douro DOC wines and a rich Port, accompanied by local cheeses and charcuterie.",
+    quoteSource: "TripAdvisor",
+    proTip: "Open May-September Tue-Sun without booking required. Great value at €15 with cheeses and charcuterie included.",
+    tags: ["Best Value", "360° Views"],
+    website: "https://realcompanhiavelha.pt/en/enoturismo-quinta-das-carvalhas",
+    hiddenGem: false,
+    topPick: false
+  },
+  {
+    id: 6,
+    name: "Quinta de la Rosa",
+    category: "vineyard",
+    categoryLabel: "Vineyard & Tasting",
+    location: "Pinhão",
+    distance: "~1h15 drive",
+    distanceMinutes: 75,
+    priceRange: "€€",
+    priceText: "€25",
+    duration: "1-1.5 hours",
+    rating: 4.0,
+    reviewCount: "842",
+    image: "https://images.unsplash.com/photo-1516594915697-87eb3b1c14ea?auto=format&fit=crop&w=800&q=80",
+    description: "Family-run quinta since 1906 with winery, hotel, and excellent Cozinha da Clara restaurant. 15-min walk from Pinhão.",
+    quote: "Returning to Quinta de la Rosa and getting the same high quality and authentic experience testifies to a place that truly knows what it wants.",
+    quoteSource: "TripAdvisor",
+    proTip: "Combine tasting + dinner at Cozinha da Clara for a full evening. Book dinner separately.",
+    tags: ["Family-Run", "Restaurant On-Site"],
+    website: "https://www.quintadelarosa.com/",
+    hiddenGem: false,
+    topPick: true
+  },
+  {
+    id: 7,
+    name: "Quinta do Tedo",
+    category: "vineyard",
+    categoryLabel: "Vineyard & Tasting",
+    location: "Near Pinhão",
+    distance: "~1h10 drive",
+    distanceMinutes: 70,
+    priceRange: "€€",
+    priceText: "€15-25",
+    duration: "1-1.5 hours",
+    rating: 4.5,
+    reviewCount: "200+",
+    image: "https://images.unsplash.com/photo-1590073242678-70ee3fc28e8e?auto=format&fit=crop&w=800&q=80",
+    description: "Boutique winery — love child of a Burgundy Frenchman and Napa American. Small batches, wines sold direct only. Beautiful river position.",
+    quote: "There's something nice about small producers, and they have an enviable position in the river. The Reserva was worth bringing back.",
+    quoteSource: "Reddit",
+    proTip: "Ports were just okay per Reddit; their dry Reserva is the star. Buy direct since you can't find it elsewhere.",
+    tags: ["Small Producer", "Unique Story"],
+    website: "https://www.quintadotedo.com/",
+    hiddenGem: true,
+    topPick: false
+  },
+  {
+    id: 8,
+    name: "Quinta da Pacheca",
+    category: "vineyard",
+    categoryLabel: "Vineyard & Tasting",
+    location: "Near Régua",
+    distance: "~55 min drive",
+    distanceMinutes: 55,
+    priceRange: "€€",
+    priceText: "€15-30",
+    duration: "1-2 hours",
+    rating: 4.0,
+    reviewCount: "500+",
+    image: "https://images.unsplash.com/photo-1474722883778-792e7990302f?auto=format&fit=crop&w=800&q=80",
+    description: "Famous quinta with iconic wine barrel hotel rooms. Beautiful cellars and property. Skip the restaurant — food is disappointing.",
+    quote: "Wine barrel hotel is incredible — wake up in the middle of the vineyard. BUT 'The food was a miss and the service was not great.'",
+    quoteSource: "Reddit",
+    proTip: "SKIP the restaurant — food and service are disappointing. Visit for the winery tour and iconic barrel photos only.",
+    tags: ["Wine Barrel Rooms", "Photo Spot"],
+    website: "https://quintadapacheca.com/",
+    hiddenGem: false,
+    topPick: false
+  },
+  {
+    id: 9,
     name: "Quinta do Portal",
-    location: "Celeirós do Douro",
-    distance: "30 min",
-    distCat: "far",
-    price: "€15–45",
-    priceMin: 15,
-    types: ["tour","tasting"],
-    duration: "1–2h",
+    category: "vineyard",
+    categoryLabel: "Vineyard & Tasting",
+    location: "Near Sabrosa",
+    distance: "~1h20 drive",
+    distanceMinutes: 80,
+    priceRange: "€€",
+    priceText: "€15-35",
+    duration: "1.5-2 hours",
+    rating: 4.5,
+    reviewCount: "200+",
     image: "https://images.unsplash.com/photo-1578911373434-0cb395d2cbfb?auto=format&fit=crop&w=800&q=80",
-    desc: "Award-winning architecture (Douro Architecture Prize 2011). Innovative approach — ages wine on-site using cork/shale-integrated warehouse instead of shipping to Gaia. Fascinating for wine production enthusiasts.",
-    includes: "Tour of architecturally significant cellar. Extensive tasting programs. Learn about non-traditional ageing methods. Wine shop.",
-    booking: "https://quintadoportal.com/en/",
-    bookHow: "Book via website"
+    description: "One of the most famous Douro wineries with a well-regarded restaurant. Award-winning architecture.",
+    quote: "Very high end winery with great table wines AND ports. The tour guide was knowledgeable and the tasting was top notch!",
+    quoteSource: "TripAdvisor",
+    proTip: "Book restaurant and tasting together for the full experience. One of the more well-known estates so book ahead.",
+    tags: ["Fine Dining", "Architecture"],
+    website: "https://www.quintadoportal.com/",
+    hiddenGem: false,
+    topPick: false
   },
   {
-    name: "Quinta de Marrocos",
-    location: "Lamego",
-    distance: "25 min",
-    distCat: "far",
-    price: "€10–25",
-    priceMin: 10,
-    types: ["tasting","experience"],
-    duration: "1–2h",
-    image: "https://images.unsplash.com/photo-1601662528567-526cd06f6582?auto=format&fit=crop&w=800&q=80",
-    desc: "Recognizable by its distinctive twin cypress trees. Small family estate preserving traditional methods — all vineyard work done by hand on the steep Douro terraces. Intimate and authentic.",
-    includes: "Comprehensive tastings of terroir wines. Old vine heritage focus. Winemaking workshops available. Hands-on harvest experience in season.",
-    booking: "https://www.quintademarrocos.pt/",
-    bookHow: "Email or phone"
+    id: 10,
+    name: "Quinta da Foz",
+    category: "vineyard",
+    categoryLabel: "Vineyard & Tasting",
+    location: "Near Pinhão",
+    distance: "~1h15 drive",
+    distanceMinutes: 75,
+    priceRange: "€€",
+    priceText: "€15-25",
+    duration: "1-1.5 hours",
+    rating: 4.5,
+    reviewCount: "50+",
+    image: "https://images.unsplash.com/photo-1567529692333-de9fd6772897?auto=format&fit=crop&w=800&q=80",
+    description: "Small family quinta at the confluence of rivers. Less known but praised by wine enthusiasts. Off the main tourist circuit.",
+    quote: "We really enjoyed the wines at Quinta da Foz — mentioned as a hidden gem by Redditors who spent 4 days driving around.",
+    quoteSource: "Reddit",
+    proTip: "Book ahead — small operation. One of the true hidden gems that only appears in deep-dive Reddit threads.",
+    tags: ["Family Estate", "Intimate"],
+    website: "https://www.quintadafoz.com/",
+    hiddenGem: true,
+    topPick: false
   },
   {
-    name: "Quinta de Santa Eufémia",
-    location: "Lamego",
-    distance: "20 min",
-    distCat: "far",
-    price: "€10–20",
-    priceMin: 10,
-    types: ["tour","tasting"],
-    duration: "1h",
-    image: "https://images.unsplash.com/photo-1566734904496-9309bb12f2e6?auto=format&fit=crop&w=800&q=80",
-    desc: "Fourth-generation family estate dating to 1864. 45 hectares on the left bank of the Douro. Over 160 years of viticultural expertise with wines aged in oak casks on-site. Excellent value.",
-    includes: "Estate tour + tasting from €10. Oak cask ageing cellars. 45 hectares of vineyards to explore. Very affordable option.",
-    booking: "https://www.quintasantaeufemia.com/",
-    bookHow: "Email or phone"
+    id: 11,
+    name: "Quinta do Crasto",
+    category: "vineyard",
+    categoryLabel: "Vineyard & Tasting",
+    location: "Sabrosa",
+    distance: "~1h25 drive",
+    distanceMinutes: 85,
+    priceRange: "€€",
+    priceText: "€15-70",
+    duration: "1.5-3 hours",
+    rating: 4.5,
+    reviewCount: "307",
+    image: "https://images.unsplash.com/photo-1566903451935-7bc1462dfc5d?auto=format&fit=crop&w=800&q=80",
+    description: "Member of the prestigious 'Douro Boys' group. Ancient estate with Roman origins, spectacular high vantage point, and century-old vines.",
+    quote: "Best Experience in Portugal. We got there and were immediately greeted by Anna who was professional, knowledgeable, but most importantly welcoming.",
+    quoteSource: "TripAdvisor",
+    proTip: "Go for the tour + lunch combo. Pool access with panoramic views. One of the region's most acclaimed producers.",
+    tags: ["Douro Boys", "Pool & Lunch"],
+    website: "https://quintadocrasto.pt/",
+    hiddenGem: false,
+    topPick: true
+  },
+  // RESTAURANTS
+  {
+    id: 12,
+    name: "DOC Restaurant",
+    category: "restaurant",
+    categoryLabel: "Fine Dining",
+    location: "Folgosa, EN222",
+    distance: "~50 min drive",
+    distanceMinutes: 50,
+    priceRange: "€€€",
+    priceText: "€50-80pp",
+    duration: "2-2.5 hours",
+    rating: 4.5,
+    reviewCount: "1000+",
+    image: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=800&q=80",
+    description: "Michelin-recognized fine dining by Chef Rui Paula, right on the Douro river. Modern Portuguese with complex flavors. Legendary sommelier.",
+    quote: "When I first came here, the Douro didn't have great gastronomic traditions. So I dared to diversify the culinary offerings. — Rui Paula",
+    quoteSource: "Chef Rui Paula",
+    proTip: "BOOK WELL IN ADVANCE — especially for terrace tables. The sommelier's recommendations are worth following. This is THE splurge dinner.",
+    tags: ["Michelin-Level", "River Terrace"],
+    website: "https://www.ruipaula.com/",
+    hiddenGem: false,
+    topPick: true
+  },
+  {
+    id: 13,
+    name: "Castas e Pratos",
+    category: "restaurant",
+    categoryLabel: "Wine Restaurant",
+    location: "Peso da Régua",
+    distance: "~50 min drive",
+    distanceMinutes: 50,
+    priceRange: "€€",
+    priceText: "€30-50pp",
+    duration: "1.5-2 hours",
+    rating: 4.5,
+    reviewCount: "500+",
+    image: "https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=800&q=80",
+    description: "Modern Portuguese in a converted railway warehouse. 30+ wines by the glass — the best selection in the Douro. Great for groups!",
+    quote: "Sommelier did well, suggesting a great wine at a lower price. My experience has always been faultless. Has vegetarian options — rare in the Douro.",
+    quoteSource: "Reddit",
+    proTip: "Ask the sommelier for off-menu suggestions — they know incredible small producers. Perfect for a group of 6 to try many wines.",
+    tags: ["30+ Wines by Glass", "Vegetarian Options"],
+    website: "https://www.castasepratos.com/",
+    hiddenGem: false,
+    topPick: true
+  },
+  {
+    id: 14,
+    name: "Aneto & Table",
+    category: "restaurant",
+    categoryLabel: "Winery Restaurant",
+    location: "Peso da Régua",
+    distance: "~50 min drive",
+    distanceMinutes: 50,
+    priceRange: "€€",
+    priceText: "€25-40pp",
+    duration: "1.5 hours",
+    rating: 4.5,
+    reviewCount: "300+",
+    image: "https://images.unsplash.com/photo-1551218808-94e220e084d2?auto=format&fit=crop&w=800&q=80",
+    description: "Unique concept — a small producer that opened a restaurant to showcase their wines. Each dish comes with a wine pairing recommendation.",
+    quote: "The concept is fantastic — with each dish, they offer a wine recommendation. The Riesling was fenomenal. So good I went back twice in 4 days.",
+    quoteSource: "Reddit",
+    proTip: "Order the cheese & smoked meat board while waiting. Try the Riesling and Late Harvest S dessert wine. Buy bottles to take home!",
+    tags: ["Wine Pairings", "Small Producer"],
+    website: "http://www.anetowines.pt/",
+    hiddenGem: false,
+    topPick: true
+  },
+  {
+    id: 15,
+    name: "Cozinha da Clara",
+    category: "restaurant",
+    categoryLabel: "Estate Dining",
+    location: "Pinhão (Quinta de la Rosa)",
+    distance: "~1h15 drive",
+    distanceMinutes: 75,
+    priceRange: "€€",
+    priceText: "€30-50pp",
+    duration: "1.5-2 hours",
+    rating: 4.5,
+    reviewCount: "200+",
+    image: "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=80",
+    description: "Modern Portuguese at Quinta de la Rosa with open dining room and terrace overlooking the Douro. Octopus, goat, braised beef cheeks.",
+    quote: "Fell so completely in love with it that it's still one of the best restaurants in the Douro valley where I go most often.",
+    quoteSource: "Local Food Blogger",
+    proTip: "Book for dinner to catch sunset over the Douro. Pair with a La Rosa wine tasting earlier in the day.",
+    tags: ["River Views", "Sunset Dinner"],
+    website: "https://www.quintadelarosa.com/",
+    hiddenGem: false,
+    topPick: false
+  },
+  {
+    id: 16,
+    name: "Toca da Raposa",
+    category: "restaurant",
+    categoryLabel: "Rustic Local",
+    location: "Near Pinhão",
+    distance: "~1h drive",
+    distanceMinutes: 60,
+    priceRange: "€",
+    priceText: "€15-25pp",
+    duration: "1-1.5 hours",
+    rating: 4.0,
+    reviewCount: "100+",
+    image: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=800&q=80",
+    description: "Rustic local restaurant serving family-run winery wines (Entre as Casas) that you literally cannot Google. True authentic experience.",
+    quote: "The white was great with cod and the rustic ambience and delightful food made for a perfect midday break. Wines from a family you can't find online.",
+    quoteSource: "Reddit",
+    proTip: "Try the cod with the white wine. Cash may be preferred. This is the anti-tourist experience.",
+    tags: ["Authentic", "Unknown Wines"],
+    website: null,
+    hiddenGem: true,
+    topPick: false
+  },
+  {
+    id: 17,
+    name: "Tasca da Quinta",
+    category: "restaurant",
+    categoryLabel: "Tapas",
+    location: "Peso da Régua",
+    distance: "~50 min drive",
+    distanceMinutes: 50,
+    priceRange: "€",
+    priceText: "€15-25pp",
+    duration: "1 hour",
+    rating: 4.5,
+    reviewCount: "200+",
+    image: "https://images.unsplash.com/photo-1515443961218-a51367888e4b?auto=format&fit=crop&w=800&q=80",
+    description: "Tiny tapas restaurant — octopus salad, sticky pork ribs, sardine omelette. Portuguese-only tapas. Perfect for pre-dinner snacks.",
+    quote: "Owner is passionate about Portuguese culture. Great desserts — orange almond cake and apple tart. Perfect casual group dinner.",
+    quoteSource: "Local Review",
+    proTip: "BOOK IN ADVANCE — it's tiny. Hard to park nearby. Great for a casual group dinner before a bigger splurge.",
+    tags: ["Tapas", "Local Favorite"],
+    website: null,
+    hiddenGem: true,
+    topPick: false
+  },
+  // EXPERIENCES
+  {
+    id: 18,
+    name: "Rabelo Boat Cruise",
+    category: "experience",
+    categoryLabel: "River Experience",
+    location: "Pinhão",
+    distance: "~1h15 drive",
+    distanceMinutes: 75,
+    priceRange: "€",
+    priceText: "€15-25pp",
+    duration: "30-60 min",
+    rating: 4.5,
+    reviewCount: "1000+",
+    image: "https://images.unsplash.com/photo-1555881400-74d7acaacd8b?auto=format&fit=crop&w=800&q=80",
+    description: "Traditional Douro river cruise on a rabelo boat from Pinhão. See terraced vineyards from the water — completely different perspective.",
+    quote: "The boat ride was amazing to see all the wineries facing the river. Weather was fantastic. Multiple Redditors say it's a must-do.",
+    quoteSource: "Reddit",
+    proTip: "Book the Pinhão departure — NOT Porto (which is an all-day affair). 30-50 min is enough. Late afternoon light is best for photos.",
+    tags: ["Must-Do", "River Views"],
+    website: "https://www.viator.com/Pinhao/d25103-ttd",
+    hiddenGem: false,
+    topPick: true
+  },
+  {
+    id: 19,
+    name: "Octant Douro Private Rabelo",
+    category: "experience",
+    categoryLabel: "Hotel Experience",
+    location: "At Hotel",
+    distance: "0 min",
+    distanceMinutes: 0,
+    priceRange: "€€€",
+    priceText: "€500-950 (group)",
+    duration: "2-4 hours",
+    rating: 4.5,
+    reviewCount: "Hotel feature",
+    image: "https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=800&q=80",
+    description: "The hotel has its own restored Rabelo boat! Private cruises with wine, snacks, and a skipper. Up to 10 passengers. Perfect for our group of 6.",
+    quote: "Private cruises on the river with wine, snacks, and a skipper. The hotel's own restored historic boat. Can do picnic baskets.",
+    quoteSource: "Octant Douro",
+    proTip: "2hr €500 · 3hr €700 · 4hr €950. Split 6 ways = very reasonable for a private boat. Book ahead for picnic baskets!",
+    tags: ["Private", "At Hotel"],
+    website: "https://douro.octanthotels.com/en/rabelo-boat",
+    hiddenGem: false,
+    topPick: true
+  },
+  {
+    id: 20,
+    name: "Douro Kayak Expeditions",
+    category: "adventure",
+    categoryLabel: "Adventure",
+    location: "Various",
+    distance: "Varies",
+    distanceMinutes: 45,
+    priceRange: "€€",
+    priceText: "€40-80pp",
+    duration: "3-6 hours",
+    rating: 5.0,
+    reviewCount: "100+",
+    image: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=800&q=80",
+    description: "Kayaking on the Douro River. Get into hidden coves and secluded corners that larger vessels can't reach. Half-day perfect for mixing with wine.",
+    quote: "The scenery was breathtaking! The kayaking was fantastic! Perfect active alternative to boat cruises.",
+    quoteSource: "TripAdvisor",
+    proTip: "Half-day is perfect for mixing with wine tastings. Book in advance. May weather should be ideal.",
+    tags: ["Active", "Unique"],
+    website: "https://dourokayak.com/",
+    hiddenGem: false,
+    topPick: false
+  },
+  {
+    id: 21,
+    name: "Linha do Douro Railway",
+    category: "experience",
+    categoryLabel: "Scenic Train",
+    location: "Porto → Pinhão",
+    distance: "Board at Régua",
+    distanceMinutes: 50,
+    priceRange: "€",
+    priceText: "€5-15pp",
+    duration: "1-3.5 hours",
+    rating: 4.5,
+    reviewCount: "Legendary",
+    image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80",
+    description: "One of Europe's most scenic train rides. Tracks right next to the Douro river, through tunnels and past vineyards. Absurdly cheap.",
+    quote: "The journey by train from Porto to Pinhão is one of the most beautiful train rides I have ever taken, anywhere in the world.",
+    quoteSource: "r/travel",
+    proTip: "Sit on the river side (south-facing). Book Régua→Pinhão segment if short on time. ~10-12 trains daily.",
+    tags: ["World-Class Scenic", "Budget"],
+    website: "https://www.cp.pt/passageiros/en",
+    hiddenGem: false,
+    topPick: true
+  },
+  // VIEWPOINTS
+  {
+    id: 22,
+    name: "Miradouro de São Leonardo de Galafura",
+    category: "viewpoint",
+    categoryLabel: "Viewpoint",
+    location: "Near Peso da Régua",
+    distance: "~1h drive",
+    distanceMinutes: 60,
+    priceRange: "€",
+    priceText: "Free",
+    duration: "30 min",
+    rating: 4.5,
+    reviewCount: "200+",
+    image: "https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?auto=format&fit=crop&w=800&q=80",
+    description: "THE most famous viewpoint in the Douro Valley. Panoramic views over the terraced valley. Famous poem by Miguel Torga describes this spot.",
+    quote: "If you're looking for that million-dollar shot of the surrounding landscape, head to São Leonardo de Galafura.",
+    quoteSource: "Local Guide",
+    proTip: "Go at sunset for the best light. Can be windy — bring a layer. The million-dollar Douro shot.",
+    tags: ["Best Views", "Sunset Spot"],
+    website: null,
+    hiddenGem: false,
+    topPick: true
+  },
+  {
+    id: 23,
+    name: "Miradouro de São Salvador do Mundo",
+    category: "viewpoint",
+    categoryLabel: "Viewpoint",
+    location: "São João da Pesqueira",
+    distance: "~1h30 drive",
+    distanceMinutes: 90,
+    priceRange: "€",
+    priceText: "Free",
+    duration: "30 min",
+    rating: 4.5,
+    reviewCount: "300+",
+    image: "https://images.unsplash.com/photo-1555881400-69089f4de890?auto=format&fit=crop&w=800&q=80",
+    description: "Viewpoint with chapel overlooking the famous Douro river bend. One of the most photographed spots in the region.",
+    quote: "The river bend below is iconic. One of the most photographed spots in the Douro. Combine with São João da Pesqueira village.",
+    quoteSource: "TripAdvisor",
+    proTip: "Combine with São João da Pesqueira village visit. Check for local market days.",
+    tags: ["Iconic", "River Bend"],
+    website: null,
+    hiddenGem: false,
+    topPick: false
+  },
+  {
+    id: 24,
+    name: "Miradouro de Casal de Loivos",
+    category: "viewpoint",
+    categoryLabel: "Viewpoint",
+    location: "Above Pinhão",
+    distance: "~1h20 drive",
+    distanceMinutes: 80,
+    priceRange: "€",
+    priceText: "Free",
+    duration: "30 min",
+    rating: 4.5,
+    reviewCount: "200+",
+    image: "https://images.unsplash.com/photo-1555881400-74d7acaacd8b?auto=format&fit=crop&w=800&q=80",
+    description: "Best aerial view of Pinhão and the river confluence. Road up is narrow and winding but worth it.",
+    quote: "Best aerial view of Pinhão and the river confluence. Combine with a day of tastings in Pinhão. Road is narrow but worth it.",
+    quoteSource: "Local Guide",
+    proTip: "Road up is narrow and winding — but worth it. There's a small manor house/hotel here too.",
+    tags: ["Aerial Views", "Worth the Drive"],
+    website: null,
+    hiddenGem: false,
+    topPick: false
+  },
+  {
+    id: 25,
+    name: "EN222 Scenic Drive",
+    category: "experience",
+    categoryLabel: "Scenic Drive",
+    location: "Régua to Pinhão",
+    distance: "On the way",
+    distanceMinutes: 0,
+    priceRange: "€",
+    priceText: "Free",
+    duration: "30-60 min",
+    rating: 5.0,
+    reviewCount: "Legendary",
+    image: "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=800&q=80",
+    description: "National road 222 along the Douro, voted one of the world's best drives. Every turn reveals a new postcard view.",
+    quote: "Temos das melhores estradas e vistas do mundo no Douro — We have some of the best roads and views in the world in the Douro.",
+    quoteSource: "Portuguese Redditor",
+    proTip: "Drive it slowly with stops. Designated driver essential. Combine with viewpoint stops. Perfect convertible road.",
+    tags: ["World's Best Roads", "Don't Rush"],
+    website: null,
+    hiddenGem: false,
+    topPick: true
+  },
+  // CULTURAL
+  {
+    id: 26,
+    name: "Douro Museum",
+    category: "cultural",
+    categoryLabel: "Museum",
+    location: "Peso da Régua",
+    distance: "~50 min drive",
+    distanceMinutes: 50,
+    priceRange: "€",
+    priceText: "€5-10pp",
+    duration: "1-1.5 hours",
+    rating: 4.0,
+    reviewCount: "300+",
+    image: "https://images.unsplash.com/photo-1582555172866-f73bb12a2ab3?auto=format&fit=crop&w=800&q=80",
+    description: "Museum about the region's winemaking history. Includes port tasting. Good for understanding context before hitting the quintas.",
+    quote: "Learned about the region's rich history and enjoyed a Tawny 10. Good rainy day option. Gives context to everything you'll taste.",
+    quoteSource: "TripAdvisor",
+    proTip: "Good option if the weather turns. Start here to understand the Douro before hitting wineries.",
+    tags: ["Educational", "Rainy Day"],
+    website: "http://www.museudodouro.pt/",
+    hiddenGem: false,
+    topPick: false
+  },
+  {
+    id: 27,
+    name: "Pinhão Train Station Tiles",
+    category: "cultural",
+    categoryLabel: "Cultural Site",
+    location: "Pinhão",
+    distance: "~1h15 drive",
+    distanceMinutes: 75,
+    priceRange: "€",
+    priceText: "Free",
+    duration: "15 min",
+    rating: 4.0,
+    reviewCount: "400+",
+    image: "https://images.unsplash.com/photo-1548707309-dcebeab9ea9b?auto=format&fit=crop&w=800&q=80",
+    description: "Historic train station decorated with traditional Portuguese azulejo tiles depicting Douro life. Beautiful but quick stop.",
+    quote: "One Reddit trip report called it 'dispensable' — nice for a quick photo but not worth a detour. Just stop by when walking between quintas.",
+    quoteSource: "Reddit",
+    proTip: "Don't make a special trip — just stop by when walking between quintas. 15 minutes is plenty.",
+    tags: ["Quick Stop", "Azulejos"],
+    website: null,
+    hiddenGem: false,
+    topPick: false
+  },
+  {
+    id: 28,
+    name: "São João da Pesqueira Village",
+    category: "cultural",
+    categoryLabel: "Village",
+    location: "São João da Pesqueira",
+    distance: "~1h20 drive",
+    distanceMinutes: 80,
+    priceRange: "€",
+    priceText: "Free",
+    duration: "1-2 hours",
+    rating: 4.0,
+    reviewCount: "100+",
+    image: "https://images.unsplash.com/photo-1585208798174-6cedd86e019a?auto=format&fit=crop&w=800&q=80",
+    description: "Historic hilltop village considered the 'capital' of Douro wine. Beautiful old center, authentic village life.",
+    quote: "Authentic village life. Combine with Miradouro de São Salvador do Mundo nearby. Good for a morning wander.",
+    quoteSource: "Local Guide",
+    proTip: "Check if there's a local market during your visit (often weekly). Good for authentic village atmosphere.",
+    tags: ["Authentic", "Old Center"],
+    website: null,
+    hiddenGem: false,
+    topPick: false
+  },
+  {
+    id: 29,
+    name: "Douro Walks (Guided Hikes)",
+    category: "adventure",
+    categoryLabel: "Guided Hiking",
+    location: "Ervedosa do Douro",
+    distance: "~1h15 drive",
+    distanceMinutes: 75,
+    priceRange: "€€",
+    priceText: "€25-50pp",
+    duration: "2-4 hours",
+    rating: 5.0,
+    reviewCount: "50+",
+    image: "https://images.unsplash.com/photo-1551632811-561732d1e306?auto=format&fit=crop&w=800&q=80",
+    description: "Local guided walking tours through vineyard terraces and villages with António. Get off the beaten path into the actual terraces.",
+    quote: "Walking through the village and spectacular picturesque terraces with António as our guide was magical.",
+    quoteSource: "Blog Review",
+    proTip: "Book ahead. Wear good walking shoes — terraces are steep. Morning is best before heat.",
+    tags: ["Active", "Local Guide"],
+    website: "https://dourowalks.com/",
+    hiddenGem: true,
+    topPick: false
+  },
+  // HOTEL AMENITIES
+  {
+    id: 30,
+    name: "Octant Douro Spa & Pool",
+    category: "experience",
+    categoryLabel: "Hotel Amenity",
+    location: "At Hotel",
+    distance: "0 min",
+    distanceMinutes: 0,
+    priceRange: "€",
+    priceText: "Included",
+    duration: "2-3 hours",
+    rating: 4.5,
+    reviewCount: "500+",
+    image: "https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=800&q=80",
+    description: "Infinity pool overlooking terraced vineyards, sauna, Turkish bath, and treatment rooms. Don't over-schedule — enjoy the hotel!",
+    quote: "From the moment you arrive you know you're somewhere very special. The design is stunning and the views are gorgeous.",
+    quoteSource: "TripAdvisor",
+    proTip: "Dedicate at least one afternoon/morning to just enjoying the hotel. The spa, pool, and views are what you're paying for.",
+    tags: ["Included", "Infinity Pool"],
+    website: "https://octanthotels.com/douro/",
+    hiddenGem: false,
+    topPick: false
+  },
+  // PRIVATE GUIDES
+  {
+    id: 31,
+    name: "Miguel Leal (Private Guide)",
+    category: "experience",
+    categoryLabel: "Private Guide",
+    location: "Picks up from hotel",
+    distance: "0 min",
+    distanceMinutes: 0,
+    priceRange: "€€€",
+    priceText: "€150-300+pp",
+    duration: "6-8 hours",
+    rating: 5.0,
+    reviewCount: "100+",
+    image: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?auto=format&fit=crop&w=800&q=80",
+    description: "Award-winning Wine Guide of the Year 2023/2024. Takes you to places you'd never find on your own. Perfect for a group of 6.",
+    quote: "Multiple Reddit threads recommend him by name. Wine Guide of the Year 2023/2024 by Wine Travel Awards. Worth every cent.",
+    quoteSource: "Reddit",
+    proTip: "Book months ahead. For 6 people, a private guide is actually great value split 6 ways. He'll customize to your wine preferences.",
+    tags: ["Award-Winning", "Custom Tours"],
+    website: "https://winetravelawards.com/stories-of-the-nominees/miguel-leal-wine-guide-top-guide-ml-private-tours-portugal/",
+    hiddenGem: false,
+    topPick: true
+  },
+  {
+    id: 32,
+    name: "Grape Essence (Local Guide)",
+    category: "experience",
+    categoryLabel: "Private Guide",
+    location: "Based in Régua",
+    distance: "Picks up from hotel",
+    distanceMinutes: 0,
+    priceRange: "€€",
+    priceText: "Contact for pricing",
+    duration: "Half/Full day",
+    rating: 5.0,
+    reviewCount: "50+",
+    image: "https://images.unsplash.com/photo-1543007631-283050bb3e8c?auto=format&fit=crop&w=800&q=80",
+    description: "Pedro lives in the heart of the Douro, in Peso da Régua. Local guide who can access small producers and hidden spots.",
+    quote: "I'm Pedro from Grape Essence, I live in the heart of the Douro, in the city of Peso da Régua. — Self-recommended on Reddit.",
+    quoteSource: "Reddit",
+    proTip: "Good option if Miguel Leal is booked. Local knowledge of small producers.",
+    tags: ["Local", "Small Producers"],
+    website: null,
+    hiddenGem: false,
+    topPick: false
+  },
+  // Add a few more activities for completeness
+  {
+    id: 33,
+    name: "Ervedosa do Douro Village",
+    category: "cultural",
+    categoryLabel: "Village Walk",
+    location: "Ervedosa do Douro",
+    distance: "~1h15 drive",
+    distanceMinutes: 75,
+    priceRange: "€",
+    priceText: "Free",
+    duration: "1-3 hours",
+    rating: 4.5,
+    reviewCount: "50+",
+    image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80",
+    description: "Small wine village with stunning terraced landscapes. Some of the oldest and most dramatic terraces in the Douro. Real village life.",
+    quote: "Walking through the village and the spectacular picturesque terraces was magical. Off the beaten path.",
+    quoteSource: "Blog Review",
+    proTip: "Combine with a Douro Walks guided tour for the full experience. Terraces here are spectacular.",
+    tags: ["Off-Grid", "Terraces"],
+    website: null,
+    hiddenGem: true,
+    topPick: false
+  },
+  {
+    id: 34,
+    name: "Wine Venture & Boat Trip",
+    category: "experience",
+    categoryLabel: "Airbnb Experience",
+    location: "Varies",
+    distance: "Varies",
+    distanceMinutes: 60,
+    priceRange: "€€",
+    priceText: "Check Airbnb",
+    duration: "Full day",
+    rating: 5.0,
+    reviewCount: "Airbnb",
+    image: "https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?auto=format&fit=crop&w=800&q=80",
+    description: "Airbnb experience hosted by Ricardo combining wine tasting with a boat trip on the Douro. Highly recommended by Reddit.",
+    quote: "Could not recommend more! The drive was gorgeous, every guide/host was knowledgeable and friendly, and the wine and food were fantastic.",
+    quoteSource: "Reddit",
+    proTip: "Check if Ricardo still runs this experience on Airbnb. Book early — popular experience.",
+    tags: ["All-Inclusive", "Combo"],
+    website: null,
+    hiddenGem: false,
+    topPick: false
+  },
+  {
+    id: 35,
+    name: "Quinta do Noval",
+    category: "vineyard",
+    categoryLabel: "Premium Vineyard",
+    location: "São Cristóvão do Douro",
+    distance: "~1h20 drive",
+    distanceMinutes: 80,
+    priceRange: "€€€",
+    priceText: "€30-100+",
+    duration: "1.5-2 hours",
+    rating: 4.5,
+    reviewCount: "Limited",
+    image: "https://images.unsplash.com/photo-1516594915697-87eb3b1c14ea?auto=format&fit=crop&w=800&q=80",
+    description: "World-famous for Noval Nacional from ungrafted pre-phylloxera vines. Most photographed terraced vineyards in the Douro. By appointment only.",
+    quote: "Walk through part of the famous Nacional vineyard. One of the world's most prestigious port producers. Dating to 1715.",
+    quoteSource: "Wine Guide",
+    proTip: "Estate tours by appointment only — book well ahead. Premium pricing but worth it for serious wine enthusiasts.",
+    tags: ["World-Famous", "Nacional"],
+    website: "https://www.quintadonoval.com/",
+    hiddenGem: false,
+    topPick: false
   }
 ];
 
-// Render cards
-function renderCards(filter, priceFilter, distFilter) {
-  const container = document.getElementById('cards');
-  container.innerHTML = '';
-  
-  QUINTAS.forEach((q, i) => {
-    const matchesType = filter === 'all' || q.types.includes(filter);
-    const matchesPrice = !priceFilter || 
-      (priceFilter === 'budget' && q.priceMin < 30) ||
-      (priceFilter === 'mid' && q.priceMin >= 15 && q.priceMin <= 75) ||
-      (priceFilter === 'premium' && q.priceMin >= 50);
-    const matchesDist = !distFilter ||
-      (distFilter === 'close' && q.distCat === 'close') ||
-      (distFilter === 'medium' && (q.distCat === 'close' || q.distCat === 'medium')) ||
-      (distFilter === 'far');
-    
-    if (!matchesType || !matchesPrice || !matchesDist) return;
+// ==================== STATE ====================
+let currentFilters = {
+  category: 'all',
+  price: 'all',
+  rating: 'all'
+};
+let dayPlans = JSON.parse(localStorage.getItem('douroPlans') || '{}');
 
-    const votes = localStorage.getItem('vote_' + i) ? true : false;
-    const voteCount = parseInt(localStorage.getItem('votecount_' + i) || '0');
+// ==================== UTILITY FUNCTIONS ====================
+function getVotes() {
+  return JSON.parse(localStorage.getItem('douroVotes') || '{}');
+}
+
+function setVotes(votes) {
+  localStorage.setItem('douroVotes', JSON.stringify(votes));
+}
+
+function getVoteCount(id) {
+  const votes = getVotes();
+  return votes[id] || 0;
+}
+
+function hasVoted(id) {
+  const userVotes = JSON.parse(localStorage.getItem('douroUserVotes') || '{}');
+  return userVotes[id] === true;
+}
+
+function toggleVote(id) {
+  const votes = getVotes();
+  const userVotes = JSON.parse(localStorage.getItem('douroUserVotes') || '{}');
+  
+  if (userVotes[id]) {
+    // Remove vote
+    votes[id] = Math.max(0, (votes[id] || 1) - 1);
+    delete userVotes[id];
+  } else {
+    // Add vote
+    votes[id] = (votes[id] || 0) + 1;
+    userVotes[id] = true;
+  }
+  
+  setVotes(votes);
+  localStorage.setItem('douroUserVotes', JSON.stringify(userVotes));
+  renderActivities();
+  renderLeaderboard();
+}
+
+function generateStars(rating) {
+  const fullStars = Math.floor(rating);
+  const halfStar = rating % 1 >= 0.5;
+  let stars = '★'.repeat(fullStars);
+  if (halfStar) stars += '½';
+  return stars;
+}
+
+// ==================== RENDER FUNCTIONS ====================
+function renderActivities() {
+  const grid = document.getElementById('activitiesGrid');
+  const countEl = document.getElementById('activitiesCount');
+  
+  const filtered = ACTIVITIES.filter(a => {
+    if (currentFilters.category !== 'all' && a.category !== currentFilters.category) return false;
+    if (currentFilters.price !== 'all' && a.priceRange !== currentFilters.price) return false;
+    if (currentFilters.rating !== 'all') {
+      const minRating = parseFloat(currentFilters.rating);
+      if (a.rating < minRating) return false;
+    }
+    return true;
+  });
+  
+  countEl.innerHTML = `Showing <strong>${filtered.length}</strong> experience${filtered.length !== 1 ? 's' : ''}`;
+  
+  grid.innerHTML = filtered.map(a => {
+    const voted = hasVoted(a.id);
+    const voteCount = getVoteCount(a.id);
     
-    const card = document.createElement('div');
-    card.className = 'card';
-    card.innerHTML = `
-      <div class="card-img" style="background-image:url('${q.image}')">
-        ${q.badge ? `<span class="badge">${q.badge}</span>` : ''}
-        <span class="distance">📍 ${q.distance} from Octant Douro</span>
-      </div>
-      <div class="card-body">
-        <h3>${q.name}</h3>
-        <p class="location">${q.location}, Douro Valley</p>
-        <div class="meta">
-          ${q.types.map(t => `<span class="tag">${t === 'food' ? '🍽️ Food Pairing' : t === 'tour' ? '🚶 Tour' : t === 'experience' ? '🎯 Experience' : '🍷 Tasting'}</span>`).join('')}
-        </div>
-        <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:8px">
-          <div>
-            <p class="price">${q.price}</p>
-            <p class="duration">⏱ ${q.duration}</p>
+    return `
+      <div class="activity-card reveal" data-id="${a.id}">
+        <div class="card-image" style="background-image: url('${a.image}')">
+          <div class="card-badges">
+            <div>
+              ${a.hiddenGem ? '<span class="badge badge-hidden-gem">💎 Hidden Gem</span>' : ''}
+              ${a.topPick ? '<span class="badge badge-top-pick">⭐ Top Pick</span>' : ''}
+            </div>
+            <span class="badge badge-distance">📍 ${a.distance}</span>
           </div>
+          ${a.rating ? `
+            <div class="card-rating">
+              <span class="rating-stars">${generateStars(a.rating)}</span>
+              <span class="rating-text">${a.rating}</span>
+              <span class="rating-count">(${a.reviewCount})</span>
+            </div>
+          ` : ''}
         </div>
-        <p class="desc">${q.desc}</p>
-        <p class="includes"><strong>What's included:</strong> ${q.includes}</p>
-        <p class="includes"><strong>How to book:</strong> ${q.bookHow}</p>
-        <div class="card-actions">
-          <a href="${q.booking}" target="_blank" class="btn-book">Book Now →</a>
-          <button class="btn-vote ${votes ? 'voted' : ''}" data-idx="${i}" onclick="toggleVote(${i}, this)">
-            ${votes ? '❤️' : '🤍'} Vote${voteCount > 0 ? ' (' + voteCount + ')' : ''}
-          </button>
+        
+        <div class="card-body">
+          <div class="card-category">${a.categoryLabel}</div>
+          <h3 class="card-title">${a.name}</h3>
+          <div class="card-location">
+            <span>📍</span> ${a.location}
+          </div>
+          
+          <div class="card-meta">
+            <div class="meta-item">
+              <span>💰</span> ${a.priceText}
+            </div>
+            <div class="meta-item">
+              <span>⏱</span> ${a.duration}
+            </div>
+          </div>
+          
+          <p class="card-desc">${a.description}</p>
+          
+          ${a.quote ? `
+            <div class="traveler-quote">
+              <p class="quote-text">"${a.quote}"</p>
+              <div class="quote-source">— ${a.quoteSource}</div>
+            </div>
+          ` : ''}
+          
+          ${a.proTip ? `
+            <div class="pro-tips">
+              <div class="pro-tips-label">💡 Pro Tip</div>
+              <p class="pro-tips-text">${a.proTip}</p>
+            </div>
+          ` : ''}
+          
+          <div class="card-tags">
+            ${a.tags.map(t => `<span class="tag">${t}</span>`).join('')}
+            <span class="tag tag-price">${a.priceRange}</span>
+          </div>
+          
+          <div class="card-actions">
+            ${a.website ? `<a href="${a.website}" target="_blank" class="btn-book">Book Now →</a>` : `<span class="btn-book" style="opacity: 0.5; cursor: default;">No Website</span>`}
+            <button class="btn-vote ${voted ? 'voted' : ''}" onclick="toggleVote(${a.id})">
+              ${voted ? '❤️' : '🤍'} <span class="vote-count">${voteCount || ''}</span>
+            </button>
+          </div>
         </div>
       </div>
     `;
-    container.appendChild(card);
+  }).join('');
+  
+  // Re-init reveal animations
+  initRevealAnimations();
+}
+
+function renderLeaderboard() {
+  const leaderboard = document.getElementById('leaderboard');
+  const votes = getVotes();
+  
+  // Get activities with votes, sorted by vote count
+  const votedActivities = ACTIVITIES
+    .map(a => ({ ...a, votes: votes[a.id] || 0 }))
+    .filter(a => a.votes > 0)
+    .sort((a, b) => b.votes - a.votes)
+    .slice(0, 10);
+  
+  if (votedActivities.length === 0) {
+    leaderboard.innerHTML = `
+      <div class="no-votes-message">
+        <h3>No votes yet!</h3>
+        <p>Be the first to vote for your favorite activities. Click the heart on any activity card above.</p>
+      </div>
+    `;
+    return;
+  }
+  
+  leaderboard.innerHTML = votedActivities.map((a, i) => {
+    const rankClass = i === 0 ? 'gold' : i === 1 ? 'silver' : i === 2 ? 'bronze' : '';
+    return `
+      <div class="leaderboard-item">
+        <div class="leaderboard-rank ${rankClass}">${i + 1}</div>
+        <div class="leaderboard-info">
+          <div class="leaderboard-name">${a.name}</div>
+          <div class="leaderboard-category">${a.categoryLabel}</div>
+        </div>
+        <div class="leaderboard-votes">
+          ❤️ ${a.votes} <span>vote${a.votes !== 1 ? 's' : ''}</span>
+        </div>
+      </div>
+    `;
+  }).join('');
+}
+
+// ==================== FILTER HANDLERS ====================
+function setupFilters() {
+  // Category tabs
+  document.getElementById('categoryTabs').addEventListener('click', (e) => {
+    const tab = e.target.closest('.category-tab');
+    if (!tab) return;
+    
+    document.querySelectorAll('.category-tab').forEach(t => t.classList.remove('active'));
+    tab.classList.add('active');
+    
+    currentFilters.category = tab.dataset.category;
+    document.getElementById('filterCategory').value = currentFilters.category;
+    renderActivities();
+  });
+  
+  // Filter bar selects
+  document.getElementById('filterCategory').addEventListener('change', (e) => {
+    currentFilters.category = e.target.value;
+    // Update tabs
+    document.querySelectorAll('.category-tab').forEach(t => {
+      t.classList.toggle('active', t.dataset.category === currentFilters.category);
+    });
+    renderActivities();
+  });
+  
+  document.getElementById('filterPrice').addEventListener('change', (e) => {
+    currentFilters.price = e.target.value;
+    renderActivities();
+  });
+  
+  document.getElementById('filterRating').addEventListener('change', (e) => {
+    currentFilters.rating = e.target.value;
+    renderActivities();
+  });
+  
+  document.getElementById('clearFilters').addEventListener('click', () => {
+    currentFilters = { category: 'all', price: 'all', rating: 'all' };
+    document.getElementById('filterCategory').value = 'all';
+    document.getElementById('filterPrice').value = 'all';
+    document.getElementById('filterRating').value = 'all';
+    document.querySelectorAll('.category-tab').forEach(t => {
+      t.classList.toggle('active', t.dataset.category === 'all');
+    });
+    renderActivities();
   });
 }
 
-function toggleVote(idx, btn) {
-  const key = 'vote_' + idx;
-  const countKey = 'votecount_' + idx;
-  if (localStorage.getItem(key)) {
-    localStorage.removeItem(key);
-    const c = Math.max(0, parseInt(localStorage.getItem(countKey) || '1') - 1);
-    localStorage.setItem(countKey, c);
-    btn.classList.remove('voted');
-    btn.innerHTML = `🤍 Vote${c > 0 ? ' (' + c + ')' : ''}`;
-  } else {
-    localStorage.setItem(key, '1');
-    const c = parseInt(localStorage.getItem(countKey) || '0') + 1;
-    localStorage.setItem(countKey, c);
-    btn.classList.add('voted');
-    btn.innerHTML = `❤️ Vote (${c})`;
-  }
+// ==================== STICKY FILTER BAR ====================
+function setupStickyFilterBar() {
+  const hero = document.getElementById('hero');
+  const filterBar = document.getElementById('filterBar');
+  
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) {
+        filterBar.classList.add('visible');
+      } else {
+        filterBar.classList.remove('visible');
+      }
+    });
+  }, { threshold: 0 });
+  
+  observer.observe(hero);
 }
 
-// Filter logic
-let currentFilter = 'all';
-let currentPrice = null;
-let currentDist = null;
+// ==================== REVEAL ANIMATIONS ====================
+function initRevealAnimations() {
+  const reveals = document.querySelectorAll('.reveal:not(.visible)');
+  
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+  
+  reveals.forEach(el => observer.observe(el));
+}
 
-document.getElementById('filters').addEventListener('click', e => {
-  if (!e.target.classList.contains('filter-btn')) return;
-  
-  if (e.target.dataset.filter) {
-    document.querySelectorAll('[data-filter]').forEach(b => b.classList.remove('active'));
-    e.target.classList.add('active');
-    currentFilter = e.target.dataset.filter;
-  }
-  if (e.target.dataset.price) {
-    if (e.target.classList.contains('active')) {
-      e.target.classList.remove('active');
-      currentPrice = null;
-    } else {
-      document.querySelectorAll('[data-price]').forEach(b => b.classList.remove('active'));
-      e.target.classList.add('active');
-      currentPrice = e.target.dataset.price;
-    }
-  }
-  if (e.target.dataset.dist) {
-    if (e.target.classList.contains('active')) {
-      e.target.classList.remove('active');
-      currentDist = null;
-    } else {
-      document.querySelectorAll('[data-dist]').forEach(b => b.classList.remove('active'));
-      e.target.classList.add('active');
-      currentDist = e.target.dataset.dist;
-    }
-  }
-  
-  renderCards(currentFilter, currentPrice, currentDist);
+// ==================== DAY PLANNER ====================
+function setupDayPlanner() {
+  // This is a simplified version - click to add
+  document.querySelectorAll('.day-slot').forEach(slot => {
+    slot.addEventListener('click', () => {
+      if (slot.classList.contains('filled')) return;
+      
+      // Show activity picker modal (simplified: prompt)
+      const activityName = prompt('Enter activity name to add (or cancel):');
+      if (activityName) {
+        slot.classList.add('filled');
+        slot.innerHTML = `
+          <div class="slot-activity-name">${activityName}</div>
+          <div class="slot-activity-time">Click to remove</div>
+        `;
+        slot.addEventListener('click', function removeSlot() {
+          slot.classList.remove('filled');
+          slot.innerHTML = `+ Add ${slot.dataset.slot.charAt(0).toUpperCase() + slot.dataset.slot.slice(1)} Activity`;
+          slot.removeEventListener('click', removeSlot);
+        }, { once: true });
+      }
+    });
+  });
+}
+
+// ==================== INIT ====================
+document.addEventListener('DOMContentLoaded', () => {
+  renderActivities();
+  renderLeaderboard();
+  setupFilters();
+  setupStickyFilterBar();
+  setupDayPlanner();
+  initRevealAnimations();
 });
-
-// Initial render
-renderCards('all', null, null);
 </script>
 
 </body>
