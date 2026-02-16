@@ -864,6 +864,29 @@ function DouroValley() {
           </div>
         </AnimatedSection>
 
+        {/* Octant Douro — What's Waiting */}
+        <AnimatedSection className="mt-10">
+          <h3 className="font-[Playfair_Display] text-3xl text-white text-center mb-6">What's Waiting at Octant Douro</h3>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {[
+              { icon: '⛵', title: 'Private Rabelo Boat', desc: 'The hotel has its own restored Rabelo boat — the iconic Douro wine vessel. Private cruises on the river with wine, snacks, and a skipper. Up to 10 passengers.', detail: '2hr €500 · 3hr €700 · 4hr €950', link: 'https://douro.octanthotels.com/en/rabelo-boat' },
+              { icon: '🧖', title: 'Sauna & Turkish Baths', desc: 'Full spa with sauna, Turkish bath, and treatment rooms. The perfect recovery after a day of wine tasting.', detail: 'Included with stay' },
+              { icon: '🍷', title: 'Wine Tastings', desc: 'On-site tastings of Douro wines curated by the hotel. No need to go anywhere for your first pour.', detail: 'Available daily' },
+              { icon: '🚴', title: 'E-Bikes & Kayaks', desc: 'Electric bikes for vineyard rides, plus kayaking and paddleboarding on the Douro River.', detail: 'Rentals available' },
+              { icon: '🏊', title: 'Infinity Pool', desc: 'Overlooking the terraced vineyards and river valley. Bring your sunscreen and a glass of port.', detail: 'Included with stay' },
+              { icon: '🍽️', title: 'Restaurant & Picnics', desc: 'Farm-to-table restaurant on-site, plus picnic baskets you can take on the boat or into the vineyards.', detail: 'Book ahead for boat picnics' },
+            ].map((item, i) => (
+              <motion.div key={i} className="bg-white/10 backdrop-blur-sm rounded-2xl p-5" whileHover={{ y: -4 }}>
+                <span className="text-2xl">{item.icon}</span>
+                <h4 className="font-semibold text-white mt-2">{item.title}</h4>
+                <p className="text-white/70 text-sm mt-1">{item.desc}</p>
+                <p className="text-[var(--color-gold)] text-xs font-semibold mt-2">{item.detail}</p>
+                {item.link && <a href={item.link} target="_blank" rel="noopener noreferrer" className="text-xs text-[var(--color-gold)] underline mt-1 inline-block">Learn more →</a>}
+              </motion.div>
+            ))}
+          </div>
+        </AnimatedSection>
+
         {/* Wineries Quick List */}
         <AnimatedSection className="mt-8">
           <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6">
